@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>mi러me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="미러미">
+    <meta property="og:description" content="최대 연 2.0% 월복리통장">
+    <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
+    <meta property="og:image" content="../images/img_share.png">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR&display=swap');
+
+        html,
+		body {
+			width: 100%;
+			height: auto;
+            min-height: auto;
+		}
+
+		body {
+            background: #ffb431;
+			font-size: 16px;
+			font-family: 'Jua', sans-serif;
+			color: #2C3E51;
+		}
+/*
+		.wrap {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+            min-height: 100%;
+			backzground-color: #f9f8f4;
+			position: relative;
+            width: 100%;
+            height: 100%;
+		}
+*/
+        .wrap {
+            position: relative;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			background-color: #f9f8f4;
+			min-height: 100%;
+			width: 100%;
+            height: 100vh;
+		}
+		.wrap>div>div,
+		.wrap>div>span {
+			text-align: center;
+		}
+
+		.work_area {
+		    position:absolute;
+		    top: 100px;
+		    height: 50vh;
+		}
+        .profile {
+            width: 300px
+        }
+        h1, h2, h3, h4, h5, h6, p, li, button {
+            font-family: 'Jua', sans-serif;
+        }
+        .b_day_title {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: black;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        .name_title {
+            color: #f7941f;
+            font-size: 35px;
+        }
+       .main_character {
+          content:"";
+          background-image: url("../images/hide_character.png");
+          background-size:172px 189px;
+          width:172px;
+          height:189px;
+          display:inline-block;
+        }
+       .nick {
+         position: relative;
+         font-size: 20px;
+         color: #fd9ca6;
+         padding:3px 10px;
+         width: fit-content;
+         background-color : #f7dade;
+         border-radius: 50px;
+       }
+       .keyword {
+         position: relative;
+         font-size: 20px;
+         color: #fdc45b;
+         padding:3px 10px;
+         width: fit-content;
+         background-color : #fbf4d1;
+         border-radius: 50px;
+       }
+       .tag_area {
+         height: 300px;
+       }
+       .tag_01 {
+         top: -160px;
+         left: -10px;
+       }
+       .tag_02 {
+         top: -135px;
+         left: -5px;
+       }
+       .tag_03 {
+         top: -240px;
+         left: 230px;
+       }
+       .tag_04 {
+         top: -210px;
+         left: 240px;
+       }
+      .tag_05 {
+         top: -170px;
+         left: -10px;
+       }
+      .tag_06 {
+         top: -210px;
+         left: 240px;
+       }
+      .tag_07 {
+         top: -170px;
+         left: -20px;
+       }
+      .tag_08 {
+         top: -220px;
+         left: 70px;
+       }
+      .tag_09 {
+         top: -230px;
+         left: 145px;
+       }
+      .tag_10 {
+         top: -280px;
+         left: 230px;
+       }
+       .border_line {
+         position:absolute;
+         width: 330px;
+         top: 510px;
+         text-align: center;
+         border-bottom: 5px solid #f7941f;
+       }
+       .friend_info {
+         position:absolute;
+         width: 330px;
+         top: 510px;
+         text-align: center;
+         margin: 30px 5px;
+       }
+       .friend_info:after {
+        content: ' ';
+        position: relative;
+        bottom: 0;
+        height: 60px;
+        background: #f9f8f4;
+        z-index: -1;
+        width: 100%;
+        display: block;
+       }
+       .stat_text_title {
+        color: #f4ce90;
+       }
+       .stat_text_detail {
+        font-family: 'Noto Sans KR', sans-serif;
+       }
+       .stat_text_detail>em {
+        color: #ff929d;
+        font-family: 'Jua', sans-serif;
+       }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="work_area" >
+        <div class="profile">
+            <li class="b_day_title">내 주변은 날 어떻게 바라볼까?</li>
+            <li class="name_title">하나비</li>
+            <div class="tag_area">
+                <div class="main_character"></div>
+                <p class="nick tag_01">안전운전</p>
+                <p class="nick tag_02">걱정쟁이</p>
+                <p class="nick tag_03">상상쟁이</p>
+                <p class="nick tag_04">장인정신</p>
+                <p class="nick tag_05">노빠꾸</p>
+                <p class="nick tag_06">불도저</p>
+                <p class="nick tag_07">인기쟁이</p>
+                <p class="nick tag_08">리더십</p>
+                <p class="nick tag_09">개그맨</p>
+                <p class="nick tag_10">????</p>
+            </div>
+            <li class="b_day_title">가장 많이 선택한 상위 10가지 키워드만 노출됩니다.</li>
+        </div>
+    </div>
+    <div class="border_line"></div>
+    <div class="friend_info">
+        <div class="friend_info_1">
+            <ul class="friend_info_summary">
+                <li class="stat_graph">
+                    test1
+                </li>
+                <li class="stat_text">
+                    <p class="stat_text_title">내 친구 분포도</p>
+                    <p class="stat_text_detail"><em>하나비</em>님 주변에는</p>
+                    <p class="stat_text_detail"><em>INFP</em> 친구가 20명으로 가장 많이 있네요.</p>
+                </li>
+            </ul>
+            <ul class="friend_info_detail">
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+                <li class="infp">infp</li>
+            </ul>
+        </div>
+        <div class="friend_info_2">
+
+        </div>
+        <div class="friend_info_3">
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

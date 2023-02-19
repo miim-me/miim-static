@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
+    <title>confirmDeeplink</title>
+    <style>
+        @media screen and (max-device-width:480px) {
+            body {
+                -webkit-text-size-adjust: none
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            //Download URL for new users to download the app
+            setTimeout(function () {
+                var res = confirm('앱스토어로 이동하겠습니까?');
+                if (res) {
+                    window.location.replace('itms-apps://itunes.apple.com/app/apple-store/id1248716281?mt=8');
+                } else {
+                    var res = 'https://apps.apple.com/kr/app/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B%EC%A6%9D%EA%B6%8C-m-stock/id1248716281?abx_tid=1671976966183%3A7fc28501-7734-4d1c-974f-ae7441851b3b';
+                    if (res)
+                        window.location.replace(res);
+                }
+            }, 3000);
+            try {
+                //-- Deep link URL for existing users with app already installed on their device
+                window.location.replace('miraeassetTrade://content?menuId=home&abx_tid=1671976966183%3A7fc28501-7734-4d1c-974f-ae7441851b3b');
+            } catch (e) {
+
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

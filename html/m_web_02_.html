@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>mi러me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="미러미">
+    <meta property="og:description" content="최대 연 2.0% 월복리통장">
+    <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
+    <meta property="og:image" content="../images/img_share.png">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
+    <style>
+        /*img {
+            padding: auto ;
+            display: block;
+        }*/
+       @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR&display=swap');
+
+        html,
+		body {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+		    background: #ffb431;
+			font-size: 16px;
+			font-family: 'Jua', sans-serif;
+			color: #2C3E51;
+		}
+
+		.wrap {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			background-color: #f9f8f4;
+		}
+
+		.wrap>div>div,
+		.wrap>div>span {
+			text-align: center;
+		}
+
+		.work_area {
+		    position:absolute;
+		    top: 100px;
+		    height: 50vh;
+		}
+        .profile {
+            width: 300px
+        }
+        h1, h2, h3, h4, h5, h6, p, li, button {
+            font-family: 'Jua', sans-serif;
+        }
+        .b_day_title {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: black;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        .name_title {
+            color: #f7941f;
+            font-size: 35px;
+        }
+       .main_character {
+          content:"";
+          background-image: url("../images/main_character.png");
+          background-size:172px 208px;
+          width:172px;
+          height:208px;
+          display:inline-block;
+        }
+       .nick {
+         position: relative;
+         font-size: 20px;
+         color: #fd9ca6;
+         padding:3px 10px;
+         width: fit-content;
+         background-color : #f7dade;
+         border-radius: 50px;
+       }
+       .keyword {
+         position: relative;
+         font-size: 20px;
+         color: #fdc45b;
+         padding:3px 10px;
+         width: fit-content;
+         background-color : #fbf4d1;
+         border-radius: 50px;
+       }
+       .tag_area {
+         height: 300px;
+       }
+       .tag_01 {
+         top: -160px;
+         left: -10px;
+       }
+       .tag_02 {
+         top: -135px;
+         left: -5px;
+       }
+       .tag_03 {
+         top: -240px;
+         left: 230px;
+       }
+       .tag_04 {
+         top: -210px;
+         left: 240px;
+       }
+      .tag_05 {
+         top: -170px;
+         left: -10px;
+       }
+      .tag_06 {
+         top: -210px;
+         left: 240px;
+       }
+      .tag_07 {
+         top: -170px;
+         left: -20px;
+       }
+      .tag_08 {
+         top: -220px;
+         left: 60px;
+       }
+      .tag_09 {
+         top: -230px;
+         left: 145px;
+       }
+      .tag_10 {
+         top: -300px;
+         left: 220px;
+       }
+      .tag_11 {
+         top: -290px;
+         left: 250px;
+       }
+       .plus {
+         position: relative;
+         left: 150px;
+         font-size: 30px;
+         color: #ffffff;
+         padding: 0px 15px;
+         width: fit-content;
+         background-color : #ff929d;
+         border-radius: 20px;
+       }
+       .border_line {
+         position:absolute;
+         width: 330px;
+         top: 530px;
+         text-align: center;
+         border-bottom: 5px solid #fbf4d1;
+       }
+       .card_area {
+         position:absolute;
+         width: 330px;
+         top: 550px;
+         text-align: center;
+       }
+       .card_type {
+         list-style-type: none; float: left;
+         color: #f79826;
+         width: 105px;
+         height: 80px;
+         background-color : #fbf4d1;
+         border-radius: 10px;
+       }
+       .card_type.add {
+
+         color: #ffffff;
+         background-color : #afaeaa;
+       }
+       ul li:not(:last-of-type) {
+         margin-right: 5px;
+       }
+       .card_type_title {
+         padding-top:15px;
+         font-size: 15px;
+       }
+       .card_type_name {
+         font-size: 25px;
+       }
+       .card_type_plus {
+         font-size: 30px;
+         padding:22px 0px;
+       }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="work_area" >
+        <div class="profile">
+            <li class="b_day_title">9월은 내가 주인공! 생일달이에요.</li>
+            <li class="name_title">하나비</li>
+            <div class="tag_area">
+                <div class="main_character"></div>
+                <p class="nick tag_01">안전운전</p>
+                <p class="nick tag_02">걱정쟁이</p>
+                <p class="nick tag_03">상상쟁이</p>
+                <p class="nick tag_04">장인정신</p>
+                <p class="keyword tag_05">아이디어</p>
+                <p class="keyword tag_06">개별화짱</p>
+                <p class="keyword tag_07">성취성취</p>
+                <p class="keyword tag_08">전략전략</p>
+                <p class="keyword tag_09">최상화짱</p>
+                <p class="keyword tag_10">인싸재질</p>
+                <p class="keyword tag_11">9월생일</p>
+            </div>
+            <button class="plus">+</button>
+        </div>
+    </div>
+    <div class="border_line"></div>
+    <ul class="card_area">
+        <li class="card_type">
+            <p class="card_type_title">MBTI</p>
+            <p class="card_type_name">ENTP</p>
+        </li>
+        <li class="card_type">
+            <p class="card_type_title">애니어그램</p>
+            <p class="card_type_name">전문가</p>
+        </li>
+        <li class="card_type add">
+            <p class="card_type_plus">+</p>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

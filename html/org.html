@@ -1,0 +1,259 @@
+
+<html lang="ko">
+<head>
+    <title>미래에셋증권 M-STOCK </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <link rel="shortcut icon" href="https://img.securities.miraeasset.com/new2016/layout/favicon.ico" />
+    <style>
+		html,
+		body {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			background: #F5F6F8;
+			font-size: 16px;
+			font-family: 'Open Sans', sans-serif;
+			color: #2C3E51;
+		}
+
+		.main {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		.main>div>div,
+		.main>div>span {
+			text-align: center;
+		}
+
+		.main span {
+			display: block;
+			padding: 40px 0 170px;
+			font-size: 3rem;
+		}
+
+		.main .app img {
+			position: absolute;
+			bottom: 30px;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 300px;
+		}
+	</style>
+    <!-- Google Tag Manager -->
+    <script>
+		var pageviewObj = new Object();
+		pageviewObj.dimension12="mobileweb";
+		dataLayer=[pageviewObj];
+		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P38XR3M');
+	</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+<div class="main">
+    <div class="workarea">
+        <div id="logo" class="logo">
+            <img src="/public/mts/images/ico_m_stock.jpg" style="width:250px;height:250px;border-radius:20px;" onerror="this.style.display='none'"/>
+        </div>
+        <span id="app_name">미래에셋증권 M-STOCK</span>
+        <div id="app_logo" class="app" style="display:none;">
+            <img src="/public/mts/images/app_store_badge.png" onclick="redirect_to_store()" />
+        </div>
+    </div>
+</div>
+<script>
+	// 유저에이전트
+	let useragent = navigator.userAgent.toLowerCase();
+	let os = (/iphone|ipad|ipod/i.test(useragent)) ? "ios" : (/android/i.test(useragent))? "android" : "etc";
+	console.log("os : " + os);
+
+	// 앱 링크 상세경로
+	let app_link_scheme = 'miraeassetTrade://';
+	let app_link_path = 'content?menuId=home';
+	let app_link_path_reg_exp = /path=/
+	if(location.search.replace("?","") && app_link_path_reg_exp.test(location.search)) {
+		let urlParams = location.search.replace("?", "").split("&");
+		let encoded_app_link_path = urlParams.find(e => app_link_path_reg_exp.test(e)).replace(app_link_path_reg_exp, "");
+		if(encoded_app_link_path) app_link_path = decodeURIComponent(encoded_app_link_path);
+	}
+	console.log('app_link_path: ' + app_link_path);
+
+	// 스토어/앱 링크
+	let etc_store_link = 'https://play.google.com/store/apps/details?id=com.miraeasset.trade';
+	let ios_store_link = 'itms-apps://apps.apple.com/KR/app/id1248716281?ls=1&mt=8';
+	let android_store_link = 'market://details?id=com.miraeasset.trade&referrer=af_tranid%3DTAp3QyZNoDCS-t1KxVMNug%26shortlink%3Dlink%26af_dp%3DmiraeassetTrade%253A%252F%252Fcontent%253FmenuId%253Dhome%26pid%3Devt%26af_xp%3Dcustom';
+
+	let app_link =  app_link_scheme + app_link_path;
+	let ios_app_link = app_link + '&af_deeplink=true&af_dp=' + encodeURIComponent(app_link);
+	let android_app_link =  app_link + '&af_deeplink=true&af_dp=' + encodeURIComponent(app_link);
+	console.log('app_link: ' + ios_app_link);
+
+	// iOS 정의
+	let ios_parts = ios_app_link.split('?', 2);
+	let ios_scheme = ios_parts[0];
+	let ios_data = ios_parts[1];
+	let ios_new_link = '';
+	let ios_reg = /(:\/\/)$/; //scheme ends with '://'
+	let ios_reg2 = /(:\/\/)/; //scheme contains '://'
+	let ios_timeout = 2000;
+
+	// 안드로이드 정의
+	let android_full_package_name = 'com.miraeasset.trade';
+	let android_full_package_name_len = android_full_package_name.length;
+	let android_index_of_last_dash = android_full_package_name.lastIndexOf('-');
+	let android_package_name = android_index_of_last_dash < 0 ? android_full_package_name : android_full_package_name.slice(0,android_index_of_last_dash);
+	let android_referrer = 'af_tranid%3DTAp3QyZNoDCS-t1KxVMNug%26shortlink%3Dlink%26af_dp%3DmiraeassetTrade%253A%252F%252Fcontent%253FmenuId%253Dhome%26pid%3Devt%26af_xp%3Dcustom';
+	let android_store_link_encoded = encodeURI(android_store_link);
+	let android_parts = android_app_link.split('://');
+	let android_scheme = android_parts.shift();
+	let android_data = android_parts.join('://');
+	let android_appsflyer_click_ts = Date.now();
+	let android_intentUrl = 'intent://' + android_data + '#Intent;scheme=' + android_scheme + ';package=' + android_package_name
+			+ ';S.browser_fallback_url=' + android_store_link_encoded + ";S.market_referrer=" + android_referrer + ';l.appsflyer_click_ts=' + android_appsflyer_click_ts + ';end';
+	if(os == "android") console.log("[Test] android_intentUrl : " + android_intentUrl);
+	let android_timeout = 2000;
+
+	// ios 특이 브라우저 예외 (웹뷰)
+	let is_naver_main = (useragent.indexOf('naver(inapp; search;') > -1);
+	let is_kakao = (useragent.indexOf('kakaotalk') > -1);
+	let is_line = (useragent.indexOf('line/') > -1);
+	let is_naver_webtoon = (useragent.indexOf('naverwebtoon/') > -1);
+	let is_special_browser = (is_kakao || is_line || is_naver_main || is_naver_webtoon);
+	if(is_special_browser){
+		ios_timeout = 1000;
+	}
+
+	function hide_appstore_badge(){
+		const appstoreElement = document.getElementsByClassName('app');
+		if (appstoreElement && appstoreElement[0]){
+			appstoreElement[0].style.visibility = 'hidden';
+		}
+	}
+
+	function sleep(milliseconds) {
+		const date = Date.now();
+		let currentDate = null;
+		do {
+			currentDate = Date.now();
+		} while (currentDate - date < milliseconds);
+	}
+
+	function is_instagram() {
+		return (useragent.indexOf('instagram') != -1);
+	}
+
+	function is_custom_redirection() {
+		return (ios_store_link.startsWith("http") && !ios_store_link.startsWith("https://apps.apple.com"));
+	}
+
+	function valid_scheme(){
+		if (ios_reg.test(ios_scheme)) {
+			let ios_new_scheme = ios_scheme + 'af';
+			ios_new_link = ios_new_scheme + '?' + ios_data;
+		} else if (ios_reg2.test(ios_scheme)) {
+			ios_new_link = ios_scheme + '?' + ios_data;
+		} else {
+			return false
+		}
+		return true
+	}
+
+	function handle_instagram(){
+		setTimeout(function () {
+			window.location.href = ios_new_link;
+			sleep(900);
+		}, 600);
+	}
+
+	document.addEventListener('visibilitychange', function () {
+		if (window.history.length > 1) {
+			window.history.go(-1); // go back to previous page
+		} else {
+			window.close();
+		}
+	});
+
+	// OS 별 분기
+	if (os == 'ios') {
+		document.getElementById('app_logo').style.display = "block";
+		is_custom_redirection() && hide_appstore_badge()
+		if(is_special_browser) {
+			try {
+				if (valid_scheme()){
+					if (is_instagram()) {
+						handle_instagram();
+					} else {
+						window.location.href = ios_new_link;
+					}
+				}
+			} catch (e) {
+				redirect_to_ios_store();
+			}
+		}
+		setTimeout(redirect_to_ios_store, ios_timeout);
+	} else if (os == 'android') {
+		location.href = android_intentUrl;
+		setTimeout(post_android_redirect, android_timeout);
+	} else {
+		location.href = etc_store_link;
+	}
+
+	// iOS 분기 후 종료
+	function post_ios_redirect() {
+		/*  카카오톡 뒤로가기 시 종료로 통일 (2022-11-14)
+		if (window.history.length > 1) {
+			window.history.go(-1); // go back to previous page
+		} else {
+			window.close();
+		}
+		*/
+		window.close();
+	}
+
+	// 안드로이드 분기 후 종료
+	function post_android_redirect() {
+		if(is_kakao) {
+			location.href = "kakaotalk://inappbrowser/close";
+		} else {
+			window.close();
+		}
+	}
+
+	// iOS 스토어 분기
+	function redirect_to_ios_store() {
+		if (!document.hidden) {
+			if (is_custom_redirection()) {
+				window.location.replace(ios_store_link);
+			} else {
+				window.location.href = ios_store_link;
+			}
+
+			setTimeout(post_ios_redirect, ios_timeout);
+		}
+	}
+
+	// 안드로이드 스토어 이동
+	function redirect_to_android_store() {
+		location.href = android_store_link;
+
+		setTimeout(post_android_redirect, android_timeout);
+	}
+
+	// OS 별 스토어 이동
+	function redirect_to_store() {
+		if(os == 'ios') {
+			redirect_to_ios_store();
+		} else {
+			redirect_to_android_store();
+		}
+	}
+</script>
+</body>
+</html>
