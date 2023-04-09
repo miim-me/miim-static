@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>mi러me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="미러미">
+    <meta property="og:description" content="최대 연 2.0% 월복리통장">
+    <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
+    <meta property="og:image" content="../images/img_share.png">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <style>
+       
+       @import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700,800')
+
+        html,
+		body {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			background: #F5F6F8;
+			font-size: 16px;
+			font-family: 'Open Sans', sans-serif;
+			color: #2C3E51;
+            height: 100vh;
+            overflow-x: hidden;
+		}
+
+		.wrap {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			
+
+			background-color:#fbf3d1;
+		}
+
+		.wrap>div>div,
+		.wrap>div>span {
+			text-align: center;
+		}
+
+        .work {
+            margin-top: 50px;
+        }
+
+        .link {
+            margin-top: 20px;
+            width : 300px;
+            height : 50px;
+            background-color:#ebacdc;
+            text-align: center;
+            padding: 10px 10px;
+            font-size: 20px;
+        }
+        .link p{
+            padding: 10px 10px;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="work" >
+        <div class="link" onclick="goLink('00')"><p>00. 로그인</p></div>
+        <div class="link" onclick="goLink('01')"><p>01. 튜토리얼</p></div>
+        <div class="link" onclick="goLink('02')"><p>02. 가입</p></div>
+        <div class="link" onclick="goLink('03')"><p>03. 마이</p></div>
+        <div class="link" onclick="goLink('04')"><p>04. 마이 (친구)</p></div>
+        <div class="link" onclick="goLink('05')"><p>05-1. 관계도 (있음)</p></div>
+        <div class="link" onclick="goLink('08')"><p>05-2. 관계도 (없음)</p></div>
+        <div class="link" onclick="goLink('06')"><p>07. 초대</p></div>
+        <div class="link" onclick="goLink('07')"><p>08. 슬라이드 샘플</p></div>
+    </div>
+</div>
+<script type="text/javascript">
+   function goLink(number) {
+    if(number == "00") {
+        window.open("http://www.miim.me/html/00_login.html");
+    } else if(number == "01") {
+        window.open("http://www.miim.me/html/01_intro.html");
+    } else if(number == "02") {
+        window.open("http://www.miim.me/html/02_join.html");
+    } else if(number == "03") {
+        window.open("http://www.miim.me/html/03_my_self.html");
+    } else if(number == "04") {
+        window.open("http://www.miim.me/html/04_my_with.html");
+    } else if(number == "05") {
+        window.open("http://www.miim.me/html/05_relation.html");
+    } else if(number == "06") {
+        window.open("http://www.miim.me/html/99_invite.html");
+    } else if(number == "07") {
+        window.open("http://www.miim.me/html/slider_sample.html");
+    } else if(number == "08") {
+        window.open("http://www.miim.me/html/05_no_relation.html");
+    } 
+   
+   }
+</script>
+</body>
+</html>

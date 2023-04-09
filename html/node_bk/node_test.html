@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>mi러me</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="미러미">
+  <meta property="og:description" content="최대 연 2.0% 월복리통장">
+  <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
+  <meta property="og:image" content="../images/img_share.png">
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/antv/g6/4.3.11/dist/g6.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR&display=swap');
+
+    html,
+    body {
+        height: 100%;
+		width: 100%;
+    }
+
+    body {
+      background: #ffb431;
+      font-size: 16px;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #2C3E51;
+    }
+
+    .wrap {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: #ffd657;
+      height: 100vh;
+    }
+
+    .wrap>div>div,
+    .wrap>div>span {
+      text-align: center;
+    }
+
+    .work_area {
+        padding-top: 150px;
+    }
+
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    button {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+  </style>
+
+</head>
+
+<body>
+  <body>
+    <div class="wrap">
+        <div class="work_area" >
+            <div id="mountNode" style="width:300px"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const data = {
+  nodes: [
+    {
+      img: '../images/node.png',
+      size: 80,
+      x: 100,
+      y: 100,
+      shape: 'image',
+      label: '아몽',
+      labelCfg: {
+        position: 'bottom'
+      },
+      clipCfg: {
+        show: true,
+        type: 'circle',
+        r: 30
+      }
+    },
+  ],
+};
+const graph = new G6.Graph({
+  container: 'mountNode',
+  width: 800,
+  height: 600,
+  defaultNode: {
+    type: 'image',
+    // shape: 'image',  // The shape has been assigned in the data, we do not have to define it any more
+    clipCfg: {
+      show: true,
+      type: 'circle'
+    }
+  },
+});
+graph.data(data);
+graph.render();
+</script>
+</html>

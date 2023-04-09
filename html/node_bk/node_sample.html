@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>mi러me</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="미러미">
+  <meta property="og:description" content="최대 연 2.0% 월복리통장">
+  <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
+  <meta property="og:image" content="../images/img_share.png">
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
+  <script src="https://gw.alipayobjects.com/os/lib/antv/g6/4.3.11/dist/g6.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR&display=swap');
+
+    html,
+    body {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+    }
+
+    body {
+      background: #ffb431;
+      font-size: 16px;
+      font-family: 'Jua', sans-serif;
+      color: #2C3E51;
+    }
+
+    .wrap {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: #f9f8f4;
+      min-height: 100%;
+      width: 100%;
+      height: 120vh;
+    }
+
+    .wrap>div>div,
+    .wrap>div>span {
+      text-align: center;
+    }
+
+    .work_area {
+      position: absolute;
+      top: 100px;
+      height: 100vh;
+    }
+
+    .profile {
+      width: 300px
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    button {
+      font-family: 'Jua', sans-serif;
+    }
+  </style>
+
+</head>
+
+<body>
+  <body>
+    <div id="mountNode" style="min-height: 240px;"></div>
+</body>
+<script>
+    var temp1 = {
+    "nodes": [
+        {
+            "id": "node_22256222",
+            "label": "fgfg",
+            "comboId": "combo_22256222",
+            "labelCfg": {
+                "style": {
+                    "fontSize": 32
+                }
+            }
+        },
+        {
+            "id": "node_22256225",
+            "label": "일번",
+            "comboId": "combo_22256225",
+            "labelCfg": {
+                "style": {
+                    "fontSize": 32
+                }
+            }
+        },
+        {
+            "id": "node_22256228",
+            "label": "이번",
+            "comboId": "combo_22256228",
+            "labelCfg": {
+                "style": {
+                    "fontSize": 32
+                }
+            }
+        }
+    ],
+    "edges": [
+        {
+            "id": null,
+            "source": "combo_22256222",
+            "target": "combo_22256225",
+            "label": "파국",
+            "style": {
+                "stroke": "#F03A36",
+                "lineWidth": 8
+            },
+            "labelCfg": {
+                "style": {
+                    "fontSize": 26,
+                    "fill": "#F03A36"
+                }
+            }
+        },
+        {
+            "id": null,
+            "source": "combo_22256222",
+            "target": "combo_22256228",
+            "label": "좋음",
+            "style": {
+                "stroke": "#36B162",
+                "lineWidth": 8
+            },
+            "labelCfg": {
+                "style": {
+                    "fontSize": 26,
+                    "fill": "#36B162"
+                }
+            }
+        },
+        {
+            "id": null,
+            "source": "combo_22256225",
+            "target": "combo_22256228",
+            "label": "그닥",
+            "style": {
+                "stroke": "#FBC140",
+                "lineWidth": 8
+            },
+            "labelCfg": {
+                "style": {
+                    "fontSize": 26,
+                    "fill": "#FBC140"
+                }
+            }
+        }
+    ],
+    "combos": [
+        {
+            "id": "combo_22256222",
+            "label": "INFP",
+            "style": {
+                "stroke": "#DADBDC",
+                "lineWidth": 4,
+                "fill": "#FFFFFF"
+            }
+        },
+        {
+            "id": "combo_22256225",
+            "label": "ESTJ",
+            "style": {
+                "stroke": "#DADBDC",
+                "lineWidth": 4,
+                "fill": "#FFFFFF"
+            }
+        },
+        {
+            "id": "combo_22256228",
+            "label": "ENTP",
+            "style": {
+                "stroke": "#DADBDC",
+                "lineWidth": 4,
+                "fill": "#FFFFFF"
+            }
+        }
+    ]
+};
+
+    function renderGraph(data) {
+        var nodeLength = data.nodes.length;
+
+        var windowHeight = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+
+        var _width = $("#mountNode").width();
+        var _height;
+        if (nodeLength === 2) {
+            _height = _width * 0.6;
+        } else {
+            if (_width >= windowHeight * 0.75) {
+                _height = windowHeight * 0.75;
+            } else {
+                _height = _width;
+            }
+        }
+
+        var _fitViewPadding;
+        if (nodeLength <= 4) {
+            _fitViewPadding = _width * 0.06;
+        } else if (nodeLength <= 6) {
+            _fitViewPadding = _width * 0.05;
+        } else if (nodeLength <= 8) {
+            _fitViewPadding = _width * 0.04;
+        } else {
+            _fitViewPadding = _width * 0.03;
+        }
+
+        var _nodeSize;
+        if (nodeLength <= 4) {
+            _nodeSize = _width * 0.14;
+        } else if (nodeLength <= 6) {
+            _nodeSize = _width * 0.11;
+        } else if (nodeLength <= 8) {
+            _nodeSize = _width * 0.08;
+        } else {
+            _nodeSize = _width * 0.04;
+        }
+
+        var _comboFontSize;
+        if (_width <= 400) {
+            _comboFontSize = 18;
+        } else if (_width <= 600) {
+            _comboFontSize = 20;
+        } else {
+            _comboFontSize = 22;
+        }
+
+        graph = new G6.Graph({
+            container: 'mountNode',
+            fitView: true,
+            fitViewPadding: _fitViewPadding,
+            width: _width,
+            height: _height,
+            groupByTypes: false,
+            layout: {
+                type: 'circular'
+            },
+            defaultNode: {
+                type: 'circle',
+                size: _nodeSize,
+                style: {
+                    lineWidth: 0,
+                    fill: 'transparent',
+                    cursor: 'pointer'
+                },
+                labelCfg: {
+                    offset: 8,
+                    style: {
+                        //fontSize: _nodeFontSize,
+                        fontFamily: 'DearPistachio',
+                        cursor: 'pointer'
+                    }
+                }
+            },
+            defaultEdge: {
+                style: {
+                    stroke: "#F0F1F2",
+                    lineWidth: 10
+                },
+                labelCfg: {
+                    autoRotate: true,
+                    refY: 24,
+                    style: {
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            defaultCombo: {
+                style: {
+                    cursor: 'pointer'
+                },
+                labelCfg: {
+                    position: 'bottom',
+                    refY: _nodeSize * -1 * 0.3,
+                    style: {
+                        fontSize: _comboFontSize,
+                        fill: "#AAAAAC",
+                        fontFamily: 'DearPistachio',
+                        fontWeight: 'bold',
+                        cursor: 'pointer'
+                    }
+                }
+            },
+
+            comboStateStyles: {
+                selected: {
+                    stroke: '#55ACEE',
+                    lineWidth: 8
+                }
+            }
+        })
+
+        graph.on('combo:click', event => {
+            var comboId = event.item.getModel().id;
+            var memberNo = comboId.replace('combo_', '');
+
+            toggleComboSelectedState(memberNo);
+            toggleEdge(memberNo);
+        });
+
+        graph.on('combo:mouseover', event => {
+            var comboId = event.item.getModel().id;
+            var memberNo = comboId.replace('combo_', '');
+
+            toggleComboSelectedState(memberNo);
+            toggleEdge(memberNo);
+        });
+
+        graph.on('node:click', event => {
+            var nodeId = event.item.getModel().id;
+            var memberNo = nodeId.replace('node_', '');
+
+            toggleComboSelectedState(memberNo);
+            toggleEdge(memberNo);
+        });
+
+        graph.on('node:mouseover', event => {
+            var nodeId = event.item.getModel().id;
+            var memberNo = nodeId.replace('node_', '');
+
+            toggleComboSelectedState(memberNo);
+            toggleEdge(memberNo);
+        })
+
+        graph.data(data);
+        graph.fitCenter();
+        graph.render();
+
+        // 초기화
+        if (groupMemberNo) {
+            toggleComboSelectedState(groupMemberNo);
+            toggleEdge(groupMemberNo);
+        } else {
+            toggleComboSelectedState(-1);
+            toggleEdge(-1);
+        }
+    };
+    
+    renderGraph(temp1);
+</script>
+</html>

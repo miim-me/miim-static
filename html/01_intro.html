@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>mi러me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="미러미">
+    <meta property="og:description" content="최대 연 2.0% 월복리통장">
+    <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
+    <meta property="og:image" content="../images/img_share.png">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        /*img {
+            padding: auto ;
+            display: block;
+        }*/
+       @import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700,800')
+
+       :root{
+            --swiper-theme-color :#f1c40c;
+        }
+
+        html,
+		body {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			background: #F5F6F8;
+			font-size: 16px;
+			font-family: 'Open Sans', sans-serif;
+			color: #2C3E51;
+            height: 100vh;
+            overflow-x: hidden;
+		}
+
+		.wrap {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			
+
+			background-color:#fbf3d1;
+		}
+
+		.wrap>div>div,
+		.wrap>div>span {
+			text-align: center;
+		}
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="swiper mySwiper" >
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../images/intro_1.jpg" style="height:100vh;" onerror="this.style.display='none'"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/intro_2.jpg" style="height:100vh;" onerror="this.style.display='none'"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/intro_3.jpg" style="height:100vh;" onerror="this.style.display='none'"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/intro_4.jpg" style="height:100vh;" onerror="this.style.display='none'"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/intro_5.jpg" style="height:100vh;" onerror="this.style.display='none'"/>
+            </div>
+       </div>
+       <!-- 
+       <div class="swiper-button-next"></div>
+       <div class="swiper-button-prev"></div>
+       -->
+       <div class="swiper-pagination"></div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script type="text/javascript">
+    document.documentElement.style.setProperty("--swiper-theme-color", "#f1c40c");
+
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "progressbar",
+      },
+      navigation: {
+        nextEl: ".swiper-slide",
+        //nextEl: ".swiper-button-next",
+        //prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
+</body>
+</html>
