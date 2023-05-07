@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>mi러me</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="미러미">
+    <meta property="og:description" content="나도 몰랐던 나를 모으는 기록장">
+    <meta name="keywords" content="mi러me, 나도 몰랐던 나를 모으는 기록장 by 하영줍서 프로젝트">
+    <meta property="og:image" content="../images/share/thumbnail.png">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/lib/antv/g6/4.3.11/dist/g6.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR&display=swap');
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            background: #ffb431;
+            font-size: 15.5px;
+            font-family: 'Jua', sans-serif;
+            color: #2C3E51;
+            height: auto;
+        }
+
+        .wrap {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            background-color: #f9f8f4;
+            /* height: 100vh; */
+        }
+
+        .wrap>div>div,
+        .wrap>div>span {
+            text-align: center;
+        }
+
+        .work-area {
+            padding-top: 150px;
+        }
+
+        .title {
+            font-family : KoPubWorld돋움체;
+            font-size : 20px;
+            color : #000000;
+            margin-bottom: 20px;
+        }
+
+        .relation {
+            width: 300px;
+            min-height: 100px;
+            background-color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .relation-title {
+            font-size : 20px;
+            color : #cdccc9;
+            text-align: left;;
+            padding-top: 16px;
+            padding-left: 16px;
+        }
+
+        .relation.add {
+            margin-top: 22px;
+            list-style-type: none; float: left;
+            height: 60px;
+            background-color : #afaeaa;
+            border-radius: 30px;
+        }
+
+        .relation-type-plus {
+            font-size: 60px;
+            color: #ffffff;
+            padding: 11px;
+            /* padding-bottom: 50px; */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        button {
+            font-family: 'Jua', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+<body>
+<div class="wrap">
+    <div class="work_area" >
+        <div class="title">나를 중심으로, 관계도 모아보기</div>
+        <div class="relation">
+            <p class="relation_title">짝궁과 나</p>
+            <div id="mountNode_1"></div>
+        </div>
+        <div class="relation">
+            <p class="relation_title">베이글메이트</p>
+            <div id="mountNode_2"></div>
+        </div>
+        <div class="relation">
+            <p class="relation_title">동냐패밀리</p>
+            <div id="mountNode_3"></div>
+        </div>
+        <div class="relation">
+            <p class="relation_title">울팀</p>
+            <div id="mountNode_4"></div>
+        </div>
+        <div class="relation add">
+            <p class="relation_type_plus">+</p>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    var graph = [];
+    var groupMemberNo = ['1_01', '2_01', '3_01', '01'];
+
+    /*********************************************
+     * (1) node 2 - 짝궁과 나
+     *********************************************/
+    var data1 = {
+        "nodes": [
+            {
+                "id": "node_1_01",
+                "label": "\n* ENTP *\n일번이이하",
+                "icon": {
+                    "img": '/images/relationship/ENTP.png',
+                },
+            },
+            {
+                "id": "node_1_02",
+                "label": "\nENTP\n이번이",
+                "icon": {
+                    "img": '/images/relationship/INFP.png',
+                },
+            },
+        ],
+        "edges": [
+            {
+                "id": "edge_1_01_02",
+                "source": "node_1_01",
+                "target": "node_1_02",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+        ],
+    };
+
+
+    /*********************************************
+     * (2) node 3 - 베이글메이트
+     *********************************************/
+    var data2 = {
+        "nodes": [
+            {
+                "id": "node_2_01",
+                "label": "일번이",
+                "icon": {
+                    "img": '/images/node_entp.png',
+                },
+            },
+            {
+                "id": "node_2_02",
+                "label": "이번이",
+                "icon": {
+                    "img": '/images/node_infp.png',
+                },
+            },
+            {
+                "id": "node_2_03",
+                "label": "삼번이",
+                "icon": {
+                    "img": '/images/node_isfj.png',
+                },
+            },
+        ],
+        "edges": [
+            {
+                "id": "edge_2_01_02",
+                "source": "node_2_01",
+                "target": "node_2_02",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_2_01_03",
+                "source": "node_2_01",
+                "target": "node_2_03",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_2_02_03",
+                "source": "node_2_02",
+                "target": "node_2_03",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+        ],
+    };
+
+
+    /*********************************************
+     * (3) node 4 - 동냐패밀리
+     *********************************************/
+    var data3 = {
+        "nodes": [
+            {
+                "id": "node_3_01",
+                "label": "일번이",
+                "icon": {
+                    "img": '/images/node_entp.png',
+                },
+            },
+            {
+                "id": "node_3_02",
+                "label": "이번이",
+                "icon": {
+                    "img": '/images/node_infp.png',
+                },
+            },
+            {
+                "id": "node_3_03",
+                "label": "삼번이",
+                "icon": {
+                    "img": '/images/node_isfj.png',
+                },
+            },
+            {
+                "id": "node_3_04",
+                "label": "사번이",
+                "icon": {
+                    "img": '/images/node_entp.png',
+                },
+            },
+        ],
+        "edges": [
+            {
+                "id": "edge_3_01_02",
+                "source": "node_3_01",
+                "target": "node_3_02",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_3_01_03",
+                "source": "node_3_01",
+                "target": "node_3_03",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_3_01_04",
+                "source": "node_3_01",
+                "target": "node_3_04",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_3_02_03",
+                "source": "node_3_02",
+                "target": "node_3_03",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_3_02_04",
+                "source": "node_3_02",
+                "target": "node_3_04",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_3_03_04",
+                "source": "node_3_03",
+                "target": "node_3_04",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+
+        ],
+    };
+
+    /*********************************************
+     * (4) node 10 - 울팀
+     *********************************************/
+    var data4 = {
+        "nodes": [
+            {
+                "id": "node_01",
+                "label": "\n* ENTP *\nhanabee",
+                "icon": {
+                    "img": '/images/node_entp.png',
+                },
+            },
+            {
+                "id": "node_02",
+                "label": "이번이",
+                "icon": {
+                    "img": '/images/node_infp.png',
+                },
+            },
+            {
+                "id": "node_03",
+                "label": "삼번이",
+                "icon": {
+                    "img": '/images/node_isfj.png',
+                },
+            },
+            {
+                "id": "node_04",
+                "label": "사번이",
+                "icon": {
+                    "img": '/images/node_entp.png',
+                },
+            },
+            {
+                "id": "node_05",
+                "label": "오번이",
+                "icon": {
+                    "img": '/images/node_infp.png',
+                },
+            },
+            {
+                "id": "node_06",
+                "label": "육번이",
+                "icon": {
+                    "img": '/images/node_isfj.png',
+                },
+            },
+            {
+                "id": "node_07",
+                "label": "칠번이",
+                "icon": {
+                    "img": '/images/node_entp.png',
+                },
+            },
+            {
+                "id": "node_08",
+                "label": "팔번이",
+                "icon": {
+                    "img": '/images/node_infp.png',
+                },
+            },
+            {
+                "id": "node_09",
+                "label": "구번이",
+                "icon": {
+                    "img": '/images/node_isfj.png',
+                },
+            },
+            {
+                "id": "node_10",
+                "label": "십번이",
+                "icon": {
+                    "img": '/images/node_isfj.png',
+                },
+            },
+        ],
+        "edges": [
+            /** node 01 **/
+            {
+                "id": "edge_01_02",
+                "source": "node_01",
+                "target": "node_02",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_03",
+                "source": "node_01",
+                "target": "node_03",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_04",
+                "source": "node_01",
+                "target": "node_04",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_02",
+                "source": "node_01",
+                "target": "node_02",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_05",
+                "source": "node_01",
+                "target": "node_05",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_06",
+                "source": "node_01",
+                "target": "node_06",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_07",
+                "source": "node_01",
+                "target": "node_07",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_08",
+                "source": "node_01",
+                "target": "node_08",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_09",
+                "source": "node_01",
+                "target": "node_09",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_10",
+                "source": "node_01",
+                "target": "node_10",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+
+            /** node 02 **/
+            {
+                "id": "edge_02_03",
+                "source": "node_02",
+                "target": "node_03",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_02_04",
+                "source": "node_02",
+                "target": "node_04",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_02_05",
+                "source": "node_02",
+                "target": "node_05",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_02_06",
+                "source": "node_02",
+                "target": "node_06",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_02_07",
+                "source": "node_02",
+                "target": "node_07",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_02_08",
+                "source": "node_02",
+                "target": "node_08",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_01_09",
+                "source": "node_01",
+                "target": "node_09",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_02_10",
+                "source": "node_02",
+                "target": "node_10",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+
+            /** node 03 **/
+            {
+                "id": "edge_03_04",
+                "source": "node_03",
+                "target": "node_04",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_03_05",
+                "source": "node_03",
+                "target": "node_05",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_03_06",
+                "source": "node_03",
+                "target": "node_06",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_03_07",
+                "source": "node_03",
+                "target": "node_07",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_03_08",
+                "source": "node_03",
+                "target": "node_08",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_03_09",
+                "source": "node_03",
+                "target": "node_09",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_03_10",
+                "source": "node_03",
+                "target": "node_10",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+
+
+            /** node 04 **/
+            {
+                "id": "edge_04_05",
+                "source": "node_04",
+                "target": "node_05",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_04_06",
+                "source": "node_04",
+                "target": "node_06",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_04_07",
+                "source": "node_04",
+                "target": "node_07",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_04_08",
+                "source": "node_04",
+                "target": "node_08",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_04_09",
+                "source": "node_04",
+                "target": "node_09",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_04_10",
+                "source": "node_04",
+                "target": "node_10",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            /** node 05 **/
+            {
+                "id": "edge_05_06",
+                "source": "node_05",
+                "target": "node_06",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_05_07",
+                "source": "node_05",
+                "target": "node_07",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_05_08",
+                "source": "node_05",
+                "target": "node_08",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_05_09",
+                "source": "node_05",
+                "target": "node_09",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_05_10",
+                "source": "node_05",
+                "target": "node_10",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+
+            /** node 06 **/
+            {
+                "id": "edge_06_07",
+                "source": "node_06",
+                "target": "node_07",
+                "label": "파국",
+                "style": {
+                    "stroke": "#F03A36",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#F03A36"
+                    }
+                }
+            },
+            {
+                "id": "edge_06_08",
+                "source": "node_06",
+                "target": "node_08",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_06_09",
+                "source": "node_06",
+                "target": "node_09",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_06_10",
+                "source": "node_06",
+                "target": "node_10",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+
+
+            /** node 07 **/
+            {
+                "id": "edge_07_08",
+                "source": "node_07",
+                "target": "node_08",
+                "label": "좋음",
+                "style": {
+                    "stroke": "#36B162",
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#36B162"
+                    }
+                }
+            },
+            {
+                "id": "edge_07_09",
+                "source": "node_07",
+                "target": "node_09",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_07_10",
+                "source": "node_07",
+                "target": "node_10",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+
+            /** node 08 **/
+            {
+                "id": "edge_08_09",
+                "source": "node_08",
+                "target": "node_09",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+            {
+                "id": "edge_08_10",
+                "source": "node_08",
+                "target": "node_10",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+
+
+            /** node 09 **/
+            {
+                "id": "edge_09_10",
+                "source": "node_09",
+                "target": "node_10",
+                "label": "그닥",
+                "style": {
+                    "stroke": "#FBC140",
+
+                },
+                "labelCfg": {
+                    "style": {
+                        "fontSize": 16,
+                        "fill": "#FBC140"
+                    }
+                }
+            },
+
+        ],
+    };
+    var _data = [];
+    _data[0] = JSON.parse(JSON.stringify(data1));
+    _data[1] = JSON.parse(JSON.stringify(data2));
+    _data[2] = JSON.parse(JSON.stringify(data3));
+    _data[3] = JSON.parse(JSON.stringify(data4));
+
+    function renderGraph(id, data) {
+        var nodeLength = data.nodes.length;
+
+        var windowHeight = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+
+        var _container = "mountNode_" + id;
+
+        var _width = $("#" + _container).width();
+        var _height;
+        if (nodeLength === 2) {
+            _height = _width * 0.6;
+        } else {
+            if (_width >= windowHeight * 0.75) {
+                _height = windowHeight * 0.75;
+            } else {
+                _height = _width;
+            }
+        }
+
+        var _fitViewPadding;
+        if (nodeLength <= 4) {
+            _fitViewPadding = _width * 0.06;
+        } else if (nodeLength <= 6) {
+            _fitViewPadding = _width * 0.05;
+        } else if (nodeLength <= 8) {
+            _fitViewPadding = _width * 0.04;
+        } else {
+            _fitViewPadding = _width * 0.03;
+        }
+
+        var _nodeSize;
+        if (nodeLength <= 4) {
+            _nodeSize = _width * 0.14;
+        } else if (nodeLength <= 6) {
+            _nodeSize = _width * 0.11;
+        } else if (nodeLength <= 8) {
+            _nodeSize = _width * 0.08;
+        } else {
+            _nodeSize = _width * 0.04;
+        }
+
+        var _iconSize;
+        if (nodeLength <= 4) {
+            _iconSize = 80;
+        } else if (nodeLength <= 6) {
+            _nodeSize = 80 * 0.9;
+        } else if (nodeLength <= 8) {
+            _iconSize = 80 * 0.85;
+        } else {
+            _iconSize = 80 * 0.8;
+        }
+
+        graph[id-1] = new G6.Graph({
+            container: _container,
+            fitView: true,
+            fitViewPadding: _fitViewPadding,
+            width: _width,
+            height: _height,
+            groupByTypes: false,
+            layout: {
+                type: 'circular'
+            },
+            defaultNode: {
+                type: 'image',
+                size: _iconSize,
+                type: 'circle',
+                labelCfg: {
+                    position: 'center',
+                    style: {
+                        fontSize: 15,
+                    }
+                },
+                style: {
+                    stroke: '#606060',
+                    lineWidth: 10,
+                },
+                icon: {
+                    show: true,
+                    width: _iconSize,
+                    height: _iconSize,
+                },
+            },
+            defaultEdge: {
+                style: {
+                    stroke: "#F0F1F2",
+                    lineWidth: 8,
+                },
+                labelCfg: {
+                    autoRotate: true,
+                    refY: 24,
+                    style: {
+                        fontSize: 26,
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            nodeStateStyles: {
+                selected: {
+                    stroke: '#55ACEE',
+                    lineWidth: 8
+                }
+            },
+
+            comboStateStyles: {
+                selected: {
+                    stroke: '#55ACEE',
+                    lineWidth: 8
+                }
+            }
+        })
+
+        graph[id-1].on('node:click', event => {
+            var nodeId = event.item.getModel().id;
+            var memberNo = nodeId.replace('node_', '');
+
+            toggleNodeSelectedState(id, memberNo);
+            toggleEdge(id, memberNo);
+        });
+
+        graph[id-1].on('node:mouseover', event => {
+            var nodeId = event.item.getModel().id;
+            var memberNo = nodeId.replace('node_', '');
+
+            toggleNodeSelectedState(id, memberNo);
+            toggleEdge(id, memberNo);
+        });
+
+        graph[id-1].data(data);
+        graph[id-1].fitCenter();
+        graph[id-1].render();
+
+        // 초기화
+        var _groupMemberNo = groupMemberNo[id-1];
+        if (_groupMemberNo) {
+            toggleNodeSelectedState(id, _groupMemberNo);
+            toggleEdge(id, _groupMemberNo);
+        } else {
+            toggleNodeSelectedState(id, -1);
+            toggleEdge(id, -1);
+        }
+
+    }
+
+    function toggleNodeSelectedState(id, memberNo) {
+        console.log("toggleNodeSelectedState memberNo:" + memberNo);
+
+        graph[id-1].getNodes().forEach((node) => {
+            console.log(node);
+            console.log(node.getModel().id);
+
+            graph[id-1].setItemState(node, 'selected', node.getModel().id === 'node_' + memberNo);
+        });
+    }
+
+    function clearAllNodeSelectedState(id) {
+        console.log("clearAllNodeSelectedState");
+
+        graph[id-1].getNodes().forEach((node) => {
+            console.log(node);
+            console.log(node.getModel().id);
+
+            graph[id-1].setItemState(node, 'selected', false);
+        });
+    }
+
+    function toggleEdge(id, targetMemberNo) {
+        console.log("toggleEdge targetMemberNo: " + targetMemberNo);
+
+        graph[id-1].getEdges().forEach((edge) => {
+            console.log(edge);
+            console.log(edge.getModel().target);
+
+            if (edge.getModel().source === "node_" + targetMemberNo || edge.getModel().target === "node_" + targetMemberNo) {
+                var targetEdgeData = _data[id-1].edges.find(function (dataEdge) {
+                    return dataEdge.source === edge.getModel().source && dataEdge.target
+                        === edge.getModel().target
+                })
+
+                if (targetEdgeData) {
+                    edge.getModel().style.stroke = targetEdgeData.style.stroke;
+                    edge.getModel().label = targetEdgeData.label;
+                    edge.toFront();
+                }
+
+            } else {
+                edge.getModel().style.stroke = "#F0F1F2";
+                edge.getModel().label = "";
+                edge.toBack();
+            }
+        });
+
+        //graph.paint();
+        graph[id-1].refresh();
+    }
+
+    function showCompatibility(id, label) {
+        console.log("showCompatibility label: " + label);
+
+        // 노드 선택 모두 해제
+        clearAllNodeSelectedState(id);
+
+        graph.getEdges().forEach((edge) => {
+            var model = edge.getModel();
+            console.log(model);
+
+            var targetEdgeData = _data[id-1].edges.find(function (dataEdge) {
+                return dataEdge.source === model.source && dataEdge.target === model.target
+            })
+
+            if (!label || targetEdgeData.label === label) {
+                edge.getModel().style.stroke = targetEdgeData.style.stroke;
+                edge.getModel().label = targetEdgeData.label;
+            } else {
+                edge.getModel().style.stroke = "#F0F1F2";
+                edge.getModel().label = "";
+                edge.toBack();
+            }
+        });
+
+        graph[id-1].refresh();
+    }
+
+    function showAllEdges(id) {
+        console.log("showAllEdges");
+
+        // 노드 선택 모두 해제
+        clearAllNodeSelectedState(id);
+
+        graph[id-1].getEdges().forEach((edge) => {
+            var model = edge.getModel();
+            console.log(model);
+
+            var targetEdgeData = _data[id-1].edges.find(function (dataEdge) {
+                return dataEdge.source === model.source && dataEdge.target === model.target
+            })
+
+            edge.getModel().style.stroke = targetEdgeData.style.stroke;
+            edge.getModel().label = targetEdgeData.label;
+        });
+
+
+        graph[id-1].refresh();
+    }
+
+    renderGraph("1", data1);
+    renderGraph("2", data2);
+    renderGraph("3", data3);
+    renderGraph("4", data4);
+
+</script>
+
+</html>

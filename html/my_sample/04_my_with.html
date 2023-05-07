@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>mi러me</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="미러미">
+  <meta property="og:description" content="최대 연 2.0% 월복리통장">
+  <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
+  <meta property="og:image" content="../images/img_share.png">
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR&display=swap');
+
+    html,
+    body {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+    }
+
+    body {
+      background: #ffb431;
+      font-size: 16px;
+      font-family: 'Jua', sans-serif;
+      color: #2C3E51;
+    }
+
+    .wrap {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: #f9f8f4;
+      min-height: 100%;
+      width: 100%;
+      min-height: 1500px;
+    }
+
+    .wrap>div>div,
+    .wrap>div>span {
+      text-align: center;
+    }
+
+    .work-area {
+      position: absolute;
+      top: 100px;
+    }
+
+    .profile {
+      width: 300px
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    button {
+      font-family: 'Jua', sans-serif;
+    }
+
+    .b_day_title {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: black;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .name-title {
+      color: #f7941f;
+      font-size: 35px;
+    }
+
+    .main-character {
+      content: "";
+      background-image: url("../images/character/ME.png");
+      background-size:160px 162px;
+      width:160px;
+      height:162px;
+      display: inline-block;
+    }
+
+    .nick {
+      position: relative;
+      font-size: 20px;
+      color: #fd9ca6;
+      padding: 3px 10px;
+      width: fit-content;
+      background-color: #f7dade;
+      border-radius: 50px;
+    }
+
+    .keyword {
+      position: relative;
+      font-size: 20px;
+      color: #fdc45b;
+      padding: 3px 10px;
+      width: fit-content;
+      background-color: #fbf4d1;
+      border-radius: 50px;
+    }
+
+    .tag-area {
+      height: 300px;
+    }
+
+    .tag-01 {
+      top: -160px;
+      left: -10px;
+    }
+
+    .tag-02 {
+      top: -135px;
+      left: -5px;
+    }
+
+    .tag-03 {
+      top: -240px;
+      left: 230px;
+    }
+
+    .tag-04 {
+      top: -210px;
+      left: 240px;
+    }
+
+    .tag-05 {
+      top: -170px;
+      left: -10px;
+    }
+
+    .tag_06 {
+      top: -210px;
+      left: 240px;
+    }
+
+    .tag_07 {
+      top: -170px;
+      left: -20px;
+    }
+
+    .tag_08 {
+      top: -220px;
+      left: 70px;
+    }
+
+    .tag_09 {
+      top: -230px;
+      left: 145px;
+    }
+
+    .tag_10 {
+      top: -280px;
+      left: 230px;
+    }
+
+    .border_line {
+      position: absolute;
+      width: 100%;
+      top: 430px;
+      text-align: center;
+      border-bottom: 5px solid #f7941f;
+    }
+
+    .friend-info {
+      position: absolute;
+      width: 100%;
+      top: 440px;
+      text-align: center;
+      margin: 30px 0px;
+    }
+
+    /*
+       .friend_info:after {
+        content: ' ';
+        position: relative;
+        bottom: 0;
+        height: 60px;
+        background: #f9f8f4;
+        z-index: -1;
+        width: 100%;
+        display: block;
+       }
+       */
+    .friend-stat:not(:last-of-type) {
+      list-style-type: none;
+      float: left;
+    }
+
+    .stat-graph {
+      width: 130px;
+    }
+    .friend-chart {
+      margin-left:30px;
+      width: 70%;
+      background-image: url('../images/small_character.png');
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 25%;
+    }
+
+    .stat-text {
+      text-align: left;
+    }
+
+    .stat-text-title {
+      font-size: 13px;
+      color: #f4ce90;
+      margin-bottom: 5px;
+    }
+
+    .stat-text-detail {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .stat-text-detail>em {
+      color: #ff929d;
+      font-family: 'Jua', sans-serif;
+    }
+    
+    .friend-info-detail {
+      margin-top: 30px;
+    }
+
+    .stat-circle-graph {
+      width: 50%;
+    }
+    .stat-circle-01 {
+      background-image: url("../images/graph/circle_01.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat-circle-02 {
+      background-image: url("../images/graph/circle_02.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat_circle_03 {
+      background-image: url("../images/graph/circle_03.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat-circle-04 {
+      background-image: url("../images/graph/circle_04.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat_circle_05 {
+      background-image: url("../images/graph/circle_05.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat_circle_06 {
+      background-image: url("../images/graph/circle_06.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat_circle_07 {
+      background-image: url("../images/graph/circle_07.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat_circle_08 {
+      background-image: url("../images/graph/circle_08.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat_circle_09 {
+      background-image: url("../images/graph/circle_09.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat_circle_10 {
+      background-image: url("../images/graph/circle_10.png");
+      background-repeat : no-repeat;
+      background-position : center center;
+      background-size : 100%;
+    }
+    .stat-circle-text {
+      font-family: 'Jua', sans-serif;
+    }
+    .stat-circle-text.mbti{
+      color: #79bc99;
+    }
+    .stat-circle-text.info{
+      padding-top:3px;
+      font-size: 10px;
+    }
+    .friend-info-detail::after{
+      content: '';
+      border-bottom: 5px solid #f7e6cb;
+      display: block;
+      height: 5px;
+      margin-top: 30px;
+    }
+    .friend-info-more {
+      margin-top: 30px;
+      width: 100%;
+    }
+    .friend_info_more_thumnail img {
+      width: 120px;
+    }
+
+    .friend-info-2::after{
+      content: '';
+      border-bottom: 5px solid #f7e6cb;
+      display: block;
+      height: 5px;
+      margin-top: 30px;
+    }
+
+    .friend-info-3::after{
+      content: '';
+      border-bottom: 5px solid #f7e6cb;
+      display: block;
+      height: 5px;
+      margin-top: 30px;
+    }
+
+    .friend-info-more-title {
+      color: #f0ca8d;
+      margin-bottom: 5px;;
+      text-align: left;
+    }
+
+    .friend-info-more-text {
+      font-family: 'Noto Sans KR', sans-serif;
+      text-align: left;
+    }
+
+    .friend-info-more-text span {
+      font-family: 'Jua', sans-serif;
+      color: #fd9ca6;
+    }
+
+    .friend-info-more-summary {
+      font-size: 12px;
+      margin-top:5px;
+      text-align: left;
+      color:#a9a6a6;
+    }
+
+    .friend_info_4 p {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin-top:20px;
+      margin-bottom:40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="work_area">
+      <div class="profile">
+        <li class="b_day_title">내 주변은 날 어떻게 바라볼까?</li>
+        <li class="name_title">하나비</li>
+        <div class="tag_area">
+          <div class="main_character"></div>
+          <p class="nick tag_01">안전운전</p>
+          <p class="nick tag_02">걱정쟁이</p>
+          <p class="nick tag_03">상상쟁이</p>
+          <p class="nick tag_04">장인정신</p>
+          <p class="nick tag_05">노빠꾸</p>
+          <p class="nick tag_06">일일오</p>
+          <p class="nick tag_07">1일 5000<br>아이디어</p>
+          <p class="nick tag_08">리더십</p>
+          <p class="nick tag_09">개그맨</p>
+          <p class="nick tag_10">????</p>
+        </div>
+        <li class="b_day_title">가장 많이 선택한 상위 10가지 키워드만 노출됩니다.</li>
+      </div>
+
+      <div class="border_line"></div>
+
+      <div class="friend_info">
+        <div class="friend_info_1">
+          <table class="friend_info_detail_graph">
+            <tr>
+              <td class="friend_stat stat_graph">
+                <div class="friend_chart">
+                  <canvas id="myChart"></canvas>
+                </div>
+              </td>
+              <td class="friend_stat stat_text">
+                <p class="stat_text_title">내 친구 분포도</p>
+                <p class="stat_text_detail"><em>하나비</em>님 주변에는</p>
+                <p class="stat_text_detail"><em>INFP</em> 친구가 <em>20명</em>으로</p>
+                <p class="stat_text_detail">가장 많이 있네요.</p>
+              </td>
+            </tr>
+          </table>
+          <div class="friend_info_detail">
+
+            <table class="friend_info_detail_stat">
+              <tr>
+                <td class="stat_circle_graph stat_circle_01"></td>
+                <td class="stat_circle_text mbti">ENFJ</td>
+                <td class="stat_circle_text count">20</td>
+                <td class="stat_circle_text info">가영킴 외 11명</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_02"></td>
+                <td class="stat_circle_text mbti">ENFP</td>
+                <td class="stat_circle_text count">1</td>
+                <td class="stat_circle_text info">가영킴</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_03"></td>
+                <td class="stat_circle_text mbti">ENTJ</td>
+                <td class="stat_circle_text count">4</td>
+                <td class="stat_circle_text info">가영킴, 뉴진스 외 2명</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_04"></td>
+                <td class="stat_circle_text mbti">ENTP</td>
+                <td class="stat_circle_text count">24</td>
+                <td class="stat_circle_text info">가영킴, 뉴진스 외 22명</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_05"></td>
+                <td class="stat_circle_text mbti">ESFJ</td>
+                <td class="stat_circle_text count">2</td>
+                <td class="stat_circle_text info">가영킴, 뉴진스</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_06"></td>
+                <td class="stat_circle_text mbti">ESFP</td>
+                <td class="stat_circle_text count">1</td>
+                <td class="stat_circle_text info">가영킴</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_07"></td>
+                <td class="stat_circle_text mbti">ESTJ</td>
+                <td class="stat_circle_text count">99+</td>
+                <td class="stat_circle_text info">뉴진스, 가영킴 외 99+명</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_08"></td>
+                <td class="stat_circle_text mbti">ESTP</td>
+                <td class="stat_circle_text count">0</td>
+                <td class="stat_circle_text info">아직은?</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_09"></td>
+                <td class="stat_circle_text mbti">INFJ</td>
+                <td class="stat_circle_text count">1</td>
+                <td class="stat_circle_text info">아몽</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_10"></td>
+                <td class="stat_circle_text mbti">INFP</td>
+                <td class="stat_circle_text count">3</td>
+                <td class="stat_circle_text info">아몽, 가영킴, 뉴진스</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_07"></td>
+                <td class="stat_circle_text mbti">INTJ</td>
+                <td class="stat_circle_text count">1</td>
+                <td class="stat_circle_text info">아몽스</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_07"></td>
+                <td class="stat_circle_text mbti">INTP</td>
+                <td class="stat_circle_text count">4</td>
+                <td class="stat_circle_text info">아몽, 가영킴, 뉴진스 외 1명 </td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_07"></td>
+                <td class="stat_circle_text mbti">ISFJ</td>
+                <td class="stat_circle_text count">2</td>
+                <td class="stat_circle_text info">가영킴, 뉴진스</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_07"></td>
+                <td class="stat_circle_text mbti">ISFP</td>
+                <td class="stat_circle_text count">1</td>
+                <td class="stat_circle_text info">가영킴</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_07"></td>
+                <td class="stat_circle_text mbti">ISTJ</td>
+                <td class="stat_circle_text count">99+</td>
+                <td class="stat_circle_text info">뉴진스, 가영킴 외 99+명</td>
+              </tr>
+              <tr>
+                <td class="stat_circle_graph stat_circle_07"></td>
+                <td class="stat_circle_text mbti">ISTP</td>
+                <td class="stat_circle_text count">0</td>
+                <td class="stat_circle_text info">아직은?</td>
+              </tr>
+            </table>
+        </div>
+        <div class="friend_info_2">
+          <table class="friend_info_more">
+            <tr>
+              <td class="friend_info_more_thumnail">
+                <img src ="../images/friends_info_1.png">
+              </td>
+              <td class="friend_info_more_detail">
+                <p class="friend_info_more_title">어쩐지 어? 하면 아! 더라</p>
+                <p class="friend_info_more_text">나와 같은 MBTI인</p>
+                <p class="friend_info_more_text"><span>ENTP</span>인 친구는</p>  
+                <p class="friend_info_more_text"><span>8</span><span>명</span>이 있어요.</p>
+                <p class="friend_info_more_summary">가영킴, 하나비, 뉴진스 +7</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="friend_info_3">
+          <table class="friend_info_more">
+            <tr>
+              <td class="friend_info_more_thumnail">
+                <img src ="../images/friends_info_2.png">
+              </td>
+              <td class="friend_info_more_detail">
+                <p class="friend_info_more_title">반대라서 더 끌렸나봐!</p>
+                <p class="friend_info_more_text">나와 정반대 MBTI인</p>
+                <p class="friend_info_more_text"><span>ISFJ</span>인 친구는</p>  
+                <p class="friend_info_more_text"><span>16</span><span>명</span>이 있어요.</p>
+                <p class="friend_info_more_summary">가영킴, 하나비, 뉴진스 +7</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="friend_info_4">
+          <p>친구 분포도는 지속 업데이트 예정이에요!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('myChart');
+    const data = {
+      labels: [
+        'ENFJ', 
+        'ENFP', 
+        'ENTJ', 
+        'ENTP',
+
+        'ESFJ', 
+        'ESFP', 
+        'ESTJ', 
+        'ESTP',
+
+        'INFJ', 
+        'INFP', 
+        'INTJ', 
+        'INTP',
+
+        'INFJ', 
+        'INFP', 
+        'INTJ', 
+        'INTP'
+
+      ],
+      datasets: [{
+        label: '# of Votes',
+        backgroundColor: [
+          '#fff5cc',
+          '#ffe680',
+          '#ffcc00',
+          '#ffd699',
+
+          '#ffad33',
+          '#ff9900',
+          '#ffd1b3',
+          '#ffa366',
+
+          '#ffb3b3',
+          '#ff8080',
+          '#ff6666',
+          '#ffcce6',
+
+          '#ff80bf',
+          '#ff4da6',
+          '#ff4dd2',
+          '#ffe6f9'
+
+        ],
+        data: [
+          5, 
+          2, 
+          3, 
+          1, 
+
+          2, 
+          3,
+          1,
+          1,
+
+          1,
+          1,
+          1,
+          2,
+
+          3,
+          1,
+          1,
+          2
+
+
+      ],
+        borderWidth: 1
+      }]
+    };
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: data,
+      options: {
+        legend: {
+          display: false
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

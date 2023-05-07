@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>mi러me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="미러미">
+    <meta property="og:description" content="최대 연 2.0% 월복리통장">
+    <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
+    <meta property="og:image" content="../images/img_share.png">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        html,
+		body {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			background: #F5F6F8;
+			font-size: 16px;
+			font-family: 'Open Sans', sans-serif;
+			color: #2C3E51;
+            
+		}
+
+		.wrap {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			min-height: 880px;
+			background-color: #fcf3d2;
+		}
+
+		.wrap>div>div,
+		.wrap>div>span {
+			text-align: center;
+		}
+
+		.work-area {
+		    padding-top: 50px;
+		}
+        .invite-profile {
+            width: 320px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+        h1, h2, h3, h4, h5, h6, p, li {
+            
+            font-family: 'Noto Sans KR' !important;
+        }
+        .invite-profile .title {
+            text-align: left;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .invite-profile .sub-title {
+            text-align: left;
+            font-size: 26.5px;
+            font-weight: 700;
+            letter-spacing : -2.65px;
+        }
+        .invite-profile .sub-title:nth-last-child(2) {
+            margin-bottom: 30px;
+        }
+        .invite-profile ul {
+            margin: 0;
+            padding: 0;
+            columns: 3;
+            -webkit-columns: 3;
+            -moz-columns: 3;
+        }
+        .invite-profile .keyword {
+            border: 1px;
+            border-style: solid;
+            border-color: #000;
+            border-radius: 10px;
+            float: left;
+            font-size: 15px;
+            font-weight: 700;
+            padding:10px 10px;
+            margin: 2px 0px;
+            width: 85px;
+            height: 20px;
+        }
+        .invite-profile .selected {
+            border: 1px;
+            border-style: solid;
+            border-color: #f8931f;
+            border-radius: 10px;
+            float: left;
+            font-size: 15px;
+            font-weight: 700;
+            padding:10px 10px;
+            margin: 2px 0px;
+            width: 85px;
+            height: 20px;
+            background-color: #f8931f;
+        }
+        .invite-profile-submit {
+            
+            border: 1px;
+            border-style: solid;
+            border-color: #000;
+            border-radius: 10px;
+            float: left;
+            color: #fcf3d2;
+            font-size: 18px;
+            font-weight: 700;
+            padding:10px 10px;
+            margin: 2px 0px;
+            width: 330px;
+            height: 50px;
+            background-color: #2b3848;
+        }
+        /** 팝업 **/
+        .pop-layer .pop-container {
+            padding: 20px 25px;
+        }
+
+        .pop-layer p.ctxt {
+            color: #666;
+            line-height: 25px;
+        }
+
+        .pop-layer .btn-r {
+            width: 100%;
+            margin: 10px 0 20px;
+            padding-top: 10px;
+            border-top: 1px solid #DDD;
+            text-align: right;
+        }
+
+        .pop-layer {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 340px;
+            height: 310px;
+            /** height: auto; **/
+            background-color: #fff;
+            z-index: 10;
+        }
+
+        .dim-layer {
+            display: none;
+            position: fixed;
+            _position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+
+        .dim-layer .dimBg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: .5;
+            filter: alpha(opacity=50);
+        }
+
+        .dim-layer .pop-layer {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="work_area" >
+        <div class="invite_profile">
+            <p class="title"><span>가영킴</span>님 반가워요!</p>
+            <p class="sub_title"><span>하나비</span>님과 가장 가까운</p>
+            <p class="sub_title">단어 5가지를 골라주세요.</p>
+            <ul>            
+                <li class="keyword selected">인간리트리버</li>
+                <li class="keyword">돌직구왕</li>
+                <li class="keyword">열정그잡채</li>
+
+                <li class="keyword">분위기메이커</li>
+                <li class="keyword">리액션왕</li>
+                <li class="keyword selected">모임좋아</li>
+
+                <li class="keyword">로봇인간</li>
+                <li class="keyword">프로설명러</li>
+                <li class="keyword">집순집돌이</li>
+
+                <li class="keyword">나만의 원칙</li>
+                <li class="keyword selected">평판관리자</li>
+                <li class="keyword">나무보다숲</li>
+
+                <li class="keyword">손절빠름</li>
+                <li class="keyword">완벽주의</li>
+                <li class="keyword">객관적조언</li>
+
+                <li class="keyword">감수성풍부</li>
+                <li class="keyword">이구역핵인싸</li>
+                <li class="keyword">언행일치</li>
+
+                <li class="keyword">따수운편</li>
+                <li class="keyword">눈치만랩</li>
+                <li class="keyword selected">겉차속따</li>
+
+                <li class="keyword">몽상가기질</li>
+                <li class="keyword">성장중요해</li>
+                <li class="keyword">부들부들</li>
+
+                <li class="keyword">경계심왕성</li>
+                <li class="keyword">눈물샘폭발</li>
+                <li class="keyword">맑눈광</li>
+
+                <li class="keyword">플러팅장인</li>
+                <li class="keyword">슈퍼솔직</li>
+                <li class="keyword">단호박이세요?</li>
+
+                <li class="keyword">고민상담장인</li>
+                <li class="keyword">배려중시</li>
+                <li class="keyword selected">눈치백단</li>
+
+                <li class="keyword">카멜레온</li>
+                <li class="keyword">뒤끝없음</li>
+                <li class="keyword">따숩말랑</li>
+            </ul>  
+        </div>
+        <button class="invite_profile_submit">제출하기</p> 
+    </div>
+</div>
+<!-- 팝업 -->
+<div class="dim-layer">
+    <div class="dimBg"></div>
+    <div id="layer2" class="pop-layer" style="background-image:url('../images/popup/share.jpg'); background-size: 360px auto;">
+        <!--
+        <div class="pop-container" >
+            <div class="pop-conts">
+                <p class="ctxt mb20">Thank you.<br>
+                    Your registration was submitted successfully.<br>
+                    Selected invitees will be notified by e-mail on JANUARY 24th.<br><br>
+                    Hope to see you soon!
+                </p>
+
+                <div class="btn-r">
+                    <a href="#" class="btn-layerClose">Close</a>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+
+    $(".keyword").click((e) => {
+        //5개 넘으면, 취소하라고 안내\
+        if($(".selected").length == 5 
+        && event.target.className.indexOf("selected") == -1) {
+            alert("5개 모두 선택되었습니다.\n선택 해제 후 다시 골라주세요.");
+            return;
+        }
+        $(event.target).toggleClass("selected");
+        //console.log(event.target);
+    })
+});
+function layer_popup(el){
+
+    var $el = $(el);    //레이어의 id를 $el 변수에 저장
+    var isDim = $el.prev().hasClass('dimBg'); //dimmed 레이어를 감지하기 위한 boolean 변수
+
+    isDim ? $('.dim-layer').fadeIn() : $el.fadeIn();
+
+    var $elWidth = ~~($el.outerWidth()),
+        $elHeight = ~~($el.outerHeight()),
+        docWidth = $(document).width(),
+        docHeight = $(document).height();
+
+    // 화면의 중앙에 레이어를 띄운다.
+    if ($elHeight < docHeight || $elWidth < docWidth) {
+        $el.css({
+            marginTop: -$elHeight /2,
+            marginLeft: -$elWidth/2
+        })
+    } else {
+        $el.css({top: 0, left: 0});
+    }
+
+    $el.find('a.btn-layerClose').click(function(){
+        isDim ? $('.dim-layer').fadeOut() : $el.fadeOut(); // 닫기 버튼을 클릭하면 레이어가 닫힌다.
+        return false;
+    });
+
+    $('.layer .dimBg').click(function(){
+        $('.dim-layer').fadeOut();
+        return false;
+    });
+
+}
+layer_popup($("#layer2"));
+</script>
+</body>
+</html>
