@@ -1,212 +1,119 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="utf-8">
     <title>mi러me</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover"/>
     <meta name="format-detection" content="telephone=no">
     <meta property="og:type" content="website">
     <meta property="og:title" content="미러미">
-    <meta property="og:description" content="최대 연 2.0% 월복리통장">
-    <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
-    <meta property="og:image" content="../images/img_share.png">
+    <meta property="og:description" content="나도 몰랐던 나를 모으는 기록장">
+    <meta name="keywords" content="mi러me, 나도 몰랐던 나를 모으는 기록장 by 하영줍서 프로젝트">
+    <meta property="og:image" content="../images/share/thumbnail.png">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-
-        html,
-		body {
-			height: 100%;
-			width: 100%;
-		}
-
-		body {
-			background: #F5F6F8;
-			font-size: 16px;
-			font-family: 'Open Sans', sans-serif;
-			color: #2C3E51;
-		}
-
-		.wrap {
-			display: flex;
-			align-items: flex-start;
-			justify-content: center;
-			height: 100vh;
-			background-color: #fcf3d2;
-		}
-
-		.wrap>div>div,
-		.wrap>div>span {
-			text-align: center;
-		}
-
-		.work_area {
-		    padding-top: 150px;
-		}
-        .profile {
-            width: 300px;
-            margin: 0 auto;
-        }
-        h1, h2, h3, h4, h5, h6, p, li {
-            
-            font-family: 'Noto Sans KR' !important;
-        }
-        .title {
-            text-align: left;
-            font-size: 20px;
-            font-weight: 400;
-            letter-spacing : -2.65px;
-        }
-        .sub_title {
-            text-align: left;
-            font-size: 26.5px;
-            font-weight: 700;
-            letter-spacing : -2.65px;
-        }
-        .sub_title:nth-last-child(2) {
-            margin-bottom: 60px;
-        }
-
-        .summary {
-            width: 300px;
-            text-align: left;
-            margin-bottom: 10px;
-            font-size: 20px;
-            font-weight: 400;
-            border-bottom: 1px solid #000000;
-        }
-        .summary span{
-            color: #000000
-        }
-        input[type=text] {
-          font-size: 18px;
-          font-weight: 400;
-          border: none;
-          /* border-bottom: 1px solid #000000; */
-        }
-        .summary input[type=text] {
-          margin-left: 5px;
-        }
-        .summary label {
-            position:absolute;
-            visibility:hidden;
-        }
-        .summary label:after {
-            content:'▼'; 
-            width:40px; 
-            height:40px; 
-            position:absolute; 
-            top:0; 
-            right:0; 
-            color:#fff; 
-            text-align:center; 
-            background:#606976;
-        }
-        .summary select, .summary input[type=date] {
-            width:100%; 
-            height:40px;
-            font-size: 18px;
-            font-weight: 400;
-            color: #757575;
-            /* 
-            opacity:0; 
-            filter:alpha(opacity=0); 
-            */
-        }
-        .date_empty:before {
-            content: attr(data-placeholder);
-            width: calc(100% - 12px);
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="wrap">
-    <div class="work_area" >
+    <div class="work-area join">
         <div class="profile">
             <p class="title">반가워요!</p>
-            <p class="sub_title">나를 발견하는 여정,</p>
-            <p class="sub_title">시작해볼까요?</p>
-            <ul>            
+            <p class="sub-title">나를 발견하는 여정,</p>
+            <p class="sub-title">시작해볼까요?</p>
+            <ul>
                 <li class="summary">
-                    <label for="nickname">내 MBTI 유형은</label>
-                    <input id="nickname" type="text" size=31 maxlength=8 placeholder="이 공간에서 내 이름은 *최대 8글자" >
+                    <label for="nickname">내 이름은 (최대 8글자)</label>
+                    <input id="nickname"
+                           type="text"
+                           size=31
+                           maxlength=8
+                           placeholder="이 공간에서 내 이름은 (최대 8글자)">
                 </li>
-                <li class="summary">
-                    <label for="mbti_type">내 MBTI 유형은</label>
-                    <select id="mbti_type" title="선택 구분">
+                <li class="validation-message" style="display: none;">
+                    <p >최대 8글자까지 입력해주세요.</p>
+                </li>
+                <li class="summary warn">
+                    <label for="mbti-type">내 MBTI 유형은</label>
+                    <select id="mbti-type" title="선택 구분">
                         <option selected="selected">내 MBTI 유형은</option>
                         <option>ENFJ</option>
                         <option>ENFP</option>
                         <option>ENTJ</option>
                         <option>ENTP</option>
-
                         <option>ESFJ</option>
                         <option>ESFP</option>
                         <option>ESTJ</option>
                         <option>ESTP</option>
-
                         <option>INFJ</option>
                         <option>INFP</option>
                         <option>INTJ</option>
                         <option>INTP</option>
-
                         <option>ISFJ</option>
                         <option>ISFP</option>
                         <option>ISTJ</option>
                         <option>ISTP</option>
                     </select>
                 </li>
+                <li class="validation-message warn">
+                    <p>MBTI를 선택해주세요.</p>
+                </li>
                 <li class="summary">
-                    <label for="enneagram_type">내 에니어그램 유형은</label>
-                    <select id="enneagram_type" title="선택 구분">
+                    <label for="enneagram-type">내 에니어그램 유형은</label>
+                    <select id="enneagram-type" title="선택 구분">
                         <option selected="selected">내 에니어그램 유형은</option>
+                        <option>다음에 입력하기</option>
                         <option>1w2</option>
                         <option>1w2</option>
                         <option>2w1</option>
                         <option>2w3</option>
                         <option>3w2</option>
                         <option>3w4</option>
-
                         <option>4w3</option>
                         <option>4w5</option>
                         <option>5w4</option>
                         <option>5w6</option>
                         <option>6w5</option>
                         <option>6w7</option>
-
                         <option>7w6</option>
                         <option>7w8</option>
                         <option>8w7</option>
                         <option>8w9</option>
                         <option>9w1</option>
                         <option>9w8</option>
-                        
+
                     </select>
                 </li>
-                <li class="summary">
-                    <label for="birtdh_date">내 생년월일은</label>
-                        <input id="birtdh_date"type="date"class="date_empty placeholder-date" data-placeholder="내 생년월일은" value="1991-01-01">
+                <li class="validation-message" style="display: none;">
+                    <p>애니어그램을 선택해주세요.</p>
                 </li>
-            </ul>        
+                <li class="summary">
+                    <input
+                            placeholder="내 생년월일은"
+                            class="textbox-n"
+                            type="text"
+                            onfocus="(this.type='date')"
+                            id="date" />
+                </li>
+                <li class="validation-message" style="display: none;">
+                    <p>생년월일을 입력해주세요.</p>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-$(function(){
-
-	$("input[type=date].placeholder-date").on("change", (e) => {
-        const target = $(e.target);
-        if (target.val() == "") target.addClass("date_empty");
-        else target.removeClass("date_empty");
+    $("#mbti-type").on("change", function(){
+        $("#mbti-type").css("color", "black");
     });
 
-
-
-});
+    $("#enneagram-type").on("change", function(){
+        $("#enneagram-type").css("color", "black");
+    });
 </script>
 </body>
 </html>

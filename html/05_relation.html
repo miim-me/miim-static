@@ -8,137 +8,74 @@
     content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
   <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="미러미">
-  <meta property="og:description" content="최대 연 2.0% 월복리통장">
-  <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
-  <meta property="og:image" content="../images/img_share.png">
+    <meta property="og:title" content="미러미">
+    <meta property="og:description" content="나도 몰랐던 나를 모으는 기록장">
+    <meta name="keywords" content="mi러me, 나도 몰랐던 나를 모으는 기록장 by 하영줍서 프로젝트">
+    <meta property="og:image" content="../images/share/thumbnail.png">
   <link rel="stylesheet" type="text/css" href="../css/reset.css">
   <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
   <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
   <script src="https://gw.alipayobjects.com/os/lib/antv/g6/4.3.11/dist/g6.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR&display=swap');
-
-    html,
-    body {
-        height: 100%;
-		width: 100%;
-    }
-
-    body {
-      background: #ffb431;
-      font-size: 15.5px;
-      font-family: 'Jua', sans-serif;
-      color: #2C3E51;
-      height: auto;
-    }
-
-    .wrap {
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      background-color: #f9f8f4;
-      /* height: 100vh; */
-    }
-
-    .wrap>div>div,
-    .wrap>div>span {
-      text-align: center;
-    }
-
-    .work_area {
-        padding-top: 150px; 
-    }
-
-    .title {
-        font-family : KoPubWorld돋움체;
-        font-size : 20px;
-        color : #000000;
-        margin-bottom: 20px;
-    }
-
-    .relation {
-        width: 300px;
-        min-height: 100px;
-        background-color: #ffffff;
-        margin-bottom: 10px;
-    }
-
-    .relation_title {
-        font-size : 20px;
-        color : #cdccc9;
-        text-align: left;;
-        padding-top: 16px;
-        padding-left: 16px;
-    }
-
-    .relation.add {
-        margin-top: 22px;
-        list-style-type: none; float: left;
-        height: 60px;
-        background-color : #afaeaa;
-        border-radius: 30px;
-    }
-
-    .relation_type_plus {
-         font-size: 60px;
-         color: #ffffff;
-         padding: 11px;
-         /* padding-bottom: 50px; */
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    li,
-    button {
-      font-family: 'Jua', sans-serif;
-    }
+      .wrap {
+          background-color: #f9f8f4;
+        }
   </style>
-
 </head>
-
 <body>
   <body>
     <div class="wrap">
-        <div class="work_area" >
+        <div class="work-area relation-with" >
             <div class="title">나를 중심으로, 관계도 모아보기</div>
             <div class="relation">
-                <p class="relation_title">짝궁과 나</p>
-                <div id="mountNode_1"></div>
+                <p class="relation-title">짝궁과 나</p>
+                <div id="mountNode-1"></div>
             </div>
             <div class="relation">
-                <p class="relation_title">베이글메이트</p>
-                <div id="mountNode_2"></div>
+                <p class="relation-title">베이글메이트</p>
+                <div id="mountNode-2"></div>
             </div>
             <div class="relation">
-                <p class="relation_title">동냐패밀리</p>
-                <div id="mountNode_3"></div>
+                <p class="relation-title">동냐패밀리</p>
+                <div id="mountNode-3"></div>
             </div>
             <div class="relation">
-                <p class="relation_title">울팀</p>
-                <div id="mountNode_4"></div>
+                <p class="relation-title">울팀</p>
+                <div id="mountNode-4"></div>
             </div>
             <div class="relation add">
-                <p class="relation_type_plus">+</p>
+                <p class="relation-type-plus">+</p>
             </div>
         </div> 
         
     </div>
 </body>
 <script>
-    var graph = [];
-    var groupMemberNo = ['1_01', '2_01', '3_01', '01'];
+
+    window.onload = function() {
+        let initialHeight = document.getElementsByClassName('work-area')[0].clientHeight
+        let height = initialHeight + 'px';
+        document.getElementsByClassName('wrap')[0].style.height = height;
+        window.addEventListener('resize', function() {
+            let changeHeight = initialHeight;
+            let scrollHeight = document.documentElement.scrollHeight;
+            let clientHeight = document.documentElement.clientHeight;
+            if(clientHeight > initialHeight) {
+                changeHeight = scrollHeight;
+            }
+            height = changeHeight + 'px';
+            document.getElementsByClassName('wrap')[0].style.height = height;
+        }, true);
+    }
+
+    let graph = [];
+    let groupMemberNo = ['1_01', '2_01', '3_01', '01'];
 
     /*********************************************
      * (1) node 2 - 짝궁과 나
      *********************************************/
-    var data1 = {
+    let data1 = {
     "nodes": [
         {
             "id": "node_1_01",
@@ -178,27 +115,27 @@
     /*********************************************
      * (2) node 3 - 베이글메이트
      *********************************************/
-     var data2 = {
+     let data2 = {
     "nodes": [
         {
             "id": "node_2_01",
-            "label": "일번이",         
+            "label": "\nENTP\n일번이",
             "icon": {
-                "img": '/images/node_entp.png',
+                "img": '/images/relationship/ENTP.png',
             },
         },
         {
             "id": "node_2_02",
-            "label": "이번이",
+            "label": "\nENTP\n이번이",
             "icon": {
-                "img": '/images/node_infp.png',
+                "img": '/images/relationship/INFP.png',
             },
         },
         {
             "id": "node_2_03",
-            "label": "삼번이",
+            "label": "\nENTP\n삼번이",
             "icon": {
-                "img": '/images/node_isfj.png',
+                "img": '/images/relationship/ISFJ.png',
             },
         },
     ],
@@ -255,34 +192,34 @@
     /*********************************************
      * (3) node 4 - 동냐패밀리
      *********************************************/
-     var data3 = {
+    let data3 = {
     "nodes": [
         {
             "id": "node_3_01",
-            "label": "일번이",         
+            "label": "\nENTP\n일번이",
             "icon": {
-                "img": '/images/node_entp.png',
+                "img": '/images/relationship/ENTP.png',
             },
         },
         {
             "id": "node_3_02",
-            "label": "이번이",
+            "label": "\nENTP\n이번이",
             "icon": {
-                "img": '/images/node_infp.png',
+                "img": '/images/relationship/INFP.png',
             },
         },
         {
             "id": "node_3_03",
-            "label": "삼번이",
+            "label": "\nENTP\n삼번이",
             "icon": {
-                "img": '/images/node_isfj.png',
+                "img": '/images/relationship/ISFJ.png',
             },
         },
         {
             "id": "node_3_04",
-            "label": "사번이",         
+            "label": "\nENTP\n사번이",
             "icon": {
-                "img": '/images/node_entp.png',
+                "img": '/images/relationship/ENTP.png',
             },
         },
     ],
@@ -387,76 +324,76 @@
      /*********************************************
      * (4) node 10 - 울팀
      *********************************************/
-     var data4 = {
+     let data4 = {
     "nodes": [
         {
             "id": "node_01",
-            "label": "\n* ENTP *\nhanabee",           
+            "label": "\nENTP\nnhanabee",
             "icon": {
-                "img": '/images/node_entp.png',
+                "img": '/images/relationship/ENTP.png',
             },
         },
         {
             "id": "node_02",
-            "label": "이번이",
+            "label": "\nENTP\n이번이",
             "icon": {
-                "img": '/images/node_infp.png',
+                "img": '/images/relationship/INFP.png',
             },
         },
         {
             "id": "node_03",
-            "label": "삼번이",
+            "label": "\nENTP\n삼번이",
             "icon": {
-                "img": '/images/node_isfj.png',
+                "img": '/images/relationship/ISFJ.png',
             },
         },
         {
             "id": "node_04",
-            "label": "사번이",         
+            "label": "\nENTP\n사번이",
             "icon": {
-                "img": '/images/node_entp.png',
+                "img": '/images/relationship/ENTP.png',
             },
         },
         {
             "id": "node_05",
-            "label": "오번이",
+            "label": "\nENTP\n오번이",
             "icon": {
-                "img": '/images/node_infp.png',
+                "img": '/images/relationship/INFP.png',
             },
         },
         {
             "id": "node_06",
-            "label": "육번이",
+            "label": "\nENTP\n육번이",
             "icon": {
-                "img": '/images/node_isfj.png',
+                "img": '/images/relationship/ISFJ.png',
             },
         },
         {
             "id": "node_07",
-            "label": "칠번이",         
+            "label": "\nENTP\n칠번이",
             "icon": {
-                "img": '/images/node_entp.png',
+                "img": '/images/relationship/ENTP.png',
             },
         },
         {
             "id": "node_08",
-            "label": "팔번이",
+            "label": "\nENTP\n팔번이",
             "icon": {
-                "img": '/images/node_infp.png',
+                "img": '/images/relationship/INFP.png',
             },
         },
         {
             "id": "node_09",
-            "label": "구번이",
+            "label": "\nENTP\n구번이",
             "icon": {
-                "img": '/images/node_isfj.png',
+                "img": '/images/relationship/ISFJ.png',
             },
         },
         {
             "id": "node_10",
-            "label": "십번이",
+            "label": "\nENTP\n십번이",
             "icon": {
-                "img": '/images/node_isfj.png',
+                "img": '/images/relationship/ISFJ.png',
             },
         },
     ],
@@ -1198,23 +1135,23 @@
 
     ],
     };
-var _data = [];
-_data[0] = JSON.parse(JSON.stringify(data1));
-_data[1] = JSON.parse(JSON.stringify(data2));
-_data[2] = JSON.parse(JSON.stringify(data3));
-_data[3] = JSON.parse(JSON.stringify(data4));
+    let _data = [];
+    _data[0] = JSON.parse(JSON.stringify(data1));
+    _data[1] = JSON.parse(JSON.stringify(data2));
+    _data[2] = JSON.parse(JSON.stringify(data3));
+    _data[3] = JSON.parse(JSON.stringify(data4));
 
-function renderGraph(id, data) {
-        var nodeLength = data.nodes.length;
+    function renderGraph(id, data) {
+        let nodeLength = data.nodes.length;
 
-        var windowHeight = window.innerHeight
-            || document.documentElement.clientHeight
-            || document.body.clientHeight;
+        let windowHeight = window.innerHeight
+                || document.documentElement.clientHeight
+                || document.body.clientHeight;
 
-        var _container = "mountNode_" + id;
+        let _container = "mountNode-" + id;
 
-        var _width = $("#" + _container).width();
-        var _height;
+        let _width = $("#" + _container).width();
+        let _height;
         if (nodeLength === 2) {
             _height = _width * 0.6;
         } else {
@@ -1236,7 +1173,7 @@ function renderGraph(id, data) {
             _fitViewPadding = _width * 0.03;
         }
 
-        var _nodeSize;
+        let _nodeSize;
         if (nodeLength <= 4) {
             _nodeSize = _width * 0.14;
         } else if (nodeLength <= 6) {
@@ -1257,7 +1194,7 @@ function renderGraph(id, data) {
         } else {
             _iconSize = 80 * 0.8;
         }
-        
+
         graph[id-1] = new G6.Graph({
             container: _container,
             fitView: true,
@@ -1346,7 +1283,7 @@ function renderGraph(id, data) {
             toggleNodeSelectedState(id, -1);
             toggleEdge(id, -1);
         }
-        
+
     }
 
     function toggleNodeSelectedState(id, memberNo) {
@@ -1379,7 +1316,7 @@ function renderGraph(id, data) {
             console.log(edge.getModel().target);
 
             if (edge.getModel().source === "node_" + targetMemberNo || edge.getModel().target === "node_" + targetMemberNo) {
-                var targetEdgeData = _data[id-1].edges.find(function (dataEdge) {
+                let targetEdgeData = _data[id-1].edges.find(function (dataEdge) {
                     return dataEdge.source === edge.getModel().source && dataEdge.target
                         === edge.getModel().target
                 })
@@ -1408,10 +1345,10 @@ function renderGraph(id, data) {
         clearAllNodeSelectedState(id);
 
         graph.getEdges().forEach((edge) => {
-            var model = edge.getModel();
+            let model = edge.getModel();
             console.log(model);
 
-            var targetEdgeData = _data[id-1].edges.find(function (dataEdge) {
+            let targetEdgeData = _data[id-1].edges.find(function (dataEdge) {
                 return dataEdge.source === model.source && dataEdge.target === model.target
             })
 
@@ -1435,10 +1372,10 @@ function renderGraph(id, data) {
         clearAllNodeSelectedState(id);
 
         graph[id-1].getEdges().forEach((edge) => {
-            var model = edge.getModel();
+            let model = edge.getModel();
             console.log(model);
 
-            var targetEdgeData = _data[id-1].edges.find(function (dataEdge) {
+            let targetEdgeData = _data[id-1].edges.find(function (dataEdge) {
                 return dataEdge.source === model.source && dataEdge.target === model.target
             })
 

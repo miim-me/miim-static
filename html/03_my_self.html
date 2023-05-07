@@ -1,599 +1,286 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="utf-8">
     <title>mi러me</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover"/>
     <meta name="format-detection" content="telephone=no">
     <meta property="og:type" content="website">
     <meta property="og:title" content="미러미">
-    <meta property="og:description" content="최대 연 2.0% 월복리통장">
-    <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
-    <meta property="og:image" content="../images/img_share.png">
+    <meta property="og:description" content="나도 몰랐던 나를 모으는 기록장">
+    <meta name="keywords" content="mi러me, 나도 몰랐던 나를 모으는 기록장 by 하영줍서 프로젝트">
+    <meta property="og:image" content="../images/share/thumbnail.png">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
     <style>
-        /*img {
-            padding: auto ;
-            display: block;
-        }*/
-    @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR&display=swap');
+        html,
+        body {
+            min-height: 2100px;
+        }
 
-    html,
-		body {
-      
-			height: 100%;
-			width: 100%;
-      min-height: 1900px;
-		}
+        body {
+            background: #FFB431;
+            font-family: 'Jua', sans-serif;
+        }
 
-		body {
-		  background: #ffb431;
-			font-size: 16px;
-			font-family: 'Jua', sans-serif;
-			color: #2C3E51;
-		}
-
-		.wrap {
-      min-height: 1900px;
-			background-color: #f9f8f4;
-		}
-
-		.wrap>div>div,
-		.wrap>div>span {
-			text-align: center;
-		}
-
-		.work_area {
-      padding-top: 150px;
-      
-		}
-
-    .profile {
-        width: 330px;
-        
-        margin: 0 auto;
-        margin-bottom:100px;
-    }
-
-    h1, h2, h3, h4, h5, h6, p, li, button {
-        font-family: 'Jua', sans-serif;
-    }
-    .b_day_title {
-        font-family: 'Noto Sans KR', sans-serif;
-        color: black;
-        font-size: 15px;
-        margin-bottom: 10px;
-    }
-    .name_title {
-        color: #f7941f;
-        font-size: 35px;
-    }
-    .main_character {
-      content:"";
-      background-image: url("../images/character/ME.png");
-      background-size:160px 162px;
-      width:160px;
-      height:162px;
-      display:inline-block;
-    }
-    .ENFJ {
-      background-image: url("../images/character/ENFJ.png");
-    }
-    .ENFP {
-      background-image: url("../images/character/ENFP.png");
-    }
-    .ENTJ {
-      background-image: url("../images/character/ENTJ.png");
-    }
-    .ENTP {
-      background-image: url("../images/character/ENTP.png");
-    }
-    .ESFJ {
-      background-image: url("../images/character/ESFJ.png");
-    }
-    .ESFP {
-      background-image: url("../images/character/ESFP.png");
-    }
-    .ESTJ {
-      background-image: url("../images/character/ESTJ.png");
-    }
-    .ESTP {
-      background-image: url("../images/character/ESTP.png");
-    }
-    .INFJ {
-      background-image: url("../images/character/INFJ.png");
-    }
-    .INFP {
-      background-image: url("../images/character/INFP.png");
-    }
-    .INTJ {
-      background-image: url("../images/character/INTJ.png");
-    }
-    .INTP {
-      background-image: url("../images/character/INTP.png");
-    }
-    .ISFJ {
-      background-image: url("../images/character/ISFJ.png");
-    }
-    .ISFP {
-      background-image: url("../images/character/ISFP.png");
-    }
-    .ISTJ {
-      background-image: url("../images/character/ISTJ.png");
-    }
-    .ISTP {
-      background-image: url("../images/character/ISTP.png");
-    }
-    .nick {
-      position: relative;
-      font-size: 20px;
-      color: #fd9ca6;
-      padding:3px 10px;
-      width: fit-content;
-      background-color : #f7dade;
-      border-radius: 50px;
-    }
-    .keyword {
-      position: relative;
-      font-size: 20px;
-      color: #fdc45b;
-      padding:3px 10px;
-      width: fit-content;
-      background-color : #fbf4d1;
-      border-radius: 50px;
-    }
-    .tag_area {
-      height: 300px;
-    }
-    .tag_01 {
-      top: -160px;
-      left: -10px;
-    }
-    .tag_02 {
-      top: -135px;
-      left: -5px;
-    }
-    .tag_03 {
-      top: -240px;
-      left: 230px;
-    }
-    .tag_04 {
-      top: -210px;
-      left: 240px;
-    }
-  .tag_05 {
-      top: -170px;
-      left: -10px;
-    }
-  .tag_06 {
-      top: -210px;
-      left: 240px;
-    }
-  .tag_07 {
-      top: -170px;
-      left: -20px;
-    }
-  .tag_08 {
-      top: -220px;
-      left: 60px;
-    }
-  .tag_09 {
-      top: -230px;
-      left: 145px;
-    }
-  .tag_10 {
-      top: -300px;
-      left: 220px;
-    }
-  .tag_11 {
-      top: -290px;
-      left: 250px;
-    }
-    .plus {
-      width: 100%;
-      font-size: 30px;
-      color: #ffffff;
-      padding: 0px 15px;
-      margin-left: 270px;
-      width: fit-content;
-      background-color : #ff929d;
-      border-radius: 20px;
-    }
-    /*
-    .border_line {
-      position:absolute;
-      width: 330px;
-      top: 580px;
-      text-align: center;
-      border-bottom: 5px solid #fbf4d1;
-    }
-    */
-    .card_area {
-      /* position:absolute; */
-      width: 100%;
-      text-align: center;
-    }
-    .card_type {
-      list-style-type: none; 
-      float: left;
-      color: #f79826;
-      width: 96px;
-      height: 85px;
-      background-color : #fbf4d1;
-      border-radius: 10px;
-    }
-    .card_type.add {
-      color: #ffffff;
-      background-color : #afaeaa;
-    }
-    ul li:not(:last-of-type) {
-      margin-right: 5px;
-    }
-    .card_type_title {
-      padding-top:15px;
-      font-size: 15px;
-    }
-    .card_type_name {
-      font-size: 25px;
-    }
-    .card_type_name_main {
-    font-size: 20px;
-
-    }
-  .card_type_name_sub {
-    font-size: 12px;
-  }
-  .card_type_plus {
-    font-size: 30px;
-    padding:22px 0px;
-  }
-  .card_area::before, .card_area::after {
-      content: '';
-      border-bottom: 5px solid #fbf4d1;
-      display: block;
-      height: 5px;
-      /* width: 330px; */
-  }
-  .card_area::before {
-    margin-top: 20px;
-    margin-bottom:20px;
-
-  }
-  .card_area::after {
-    margin-top:120px;
-  }
-  .summary_area {
-    margin-top: 30px;
-    text-align: left;
-    color: #f79826;
-  }
-  .summary_type {
-    font-size: 25px;
-  }
-  .summary_text {
-    font-family: 'Noto Sans KR', sans-serif;
-    color: black;
-    font-size: 15px;
-  }
-  .graph_area {
-    margin-top: 30px;
-    
-  }
-  .graph_area p {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    
-    margin: 0 auto;
-  }
-  .graph_detail {
-    margin-top:20px;
-  }
-  .graph_bar {
-    width: 200px;
-  }
-  .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.slider::-moz-range-thumb {
-
-}
-.graph_bar .slider {
-  -webkit-appearance: none;
-  height: 15px;
-  color: #d3d3d3;
-  outline: none;
-  /* opacity: 0.7; */
-  width: 200px;
-  margin-bottom: 15px;
-}
-.graph_area::after {
-  content: '';
-  border-bottom: 1px solid #d3d3d3;
-  display: block;
-  margin-top: 20px;
-} 
-.my_type {
-  color:#f7941f;
-}
-.keword_area {
-  margin-top: 30px;
-}
-
-.keyword_card {
-  background-color: #fbf4d1;
-  height:100px;
-  margin-bottom: 20px;
-  text-align: left;
-  border-top-left-radius: 20px;
-}
-
-.keyword_title {
-  font-size: 16px;
-	font-family: 'Jua', sans-serif;
-  color:#f7941f;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  
-}
-.keyword_title p {
-  margin-left: 20px;
-}
-
-.keyword_type {
-  width: 90%;
-  columns: 5;
-  -webkit-columns: 5;
-  -moz-columns: 5;
-  margin: 0 auto;
-}
-
-.keyword_name {
-  font-family: 'Noto Sans KR', sans-serif;
-  color: rgb(255, 254, 254);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 3px 3px;
-  width: 45px;
-  background-color : #f7941f;
-  border-radius: 10px;
-  text-align: center;
-
-}
-
-.keword_area::after {
-    content: '';
-    border-bottom: 1px solid #d3d3d3;
-    display: block;
-    margin-top: 20px;
-}
-
-.extra_area {
-
-}
-
-.extra_info {
-  font-family: 'Noto Sans KR', sans-serif;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 700;
-  padding:10px 10px;
-  margin: 30px 0px;
-  width: 100%;
-  height: 50px;
-  background-color: #d3d3d3;
-}
-
-</style>
+        .wrap {
+            background-color: #F5F6F8;
+        }
+    </style>
 </head>
 <body>
+
 <div class="wrap">
-    <div class="work_area" >
+    <div class="work-area self">
 
-        <div class="profile">
-            <li class="b_day_title">9월은 내가 주인공! 생일달이에요.</li>
-            <li class="name_title">하나비</li>
-            <div class="tag_area">
-                <div class="main_character ISFP"></div>
-                <p class="nick tag_01">안전운전</p>
-                <p class="nick tag_02">걱정쟁이</p>
-                <p class="nick tag_03">상상쟁이</p>
-                <p class="nick tag_04">장인정신</p>
-                <p class="keyword tag_05">아이디어</p>
-                <p class="keyword tag_06">개별화짱</p>
-                <p class="keyword tag_07">성취성취</p>
-                <p class="keyword tag_08">전략전략</p>
-                <p class="keyword tag_09">최상화짱</p>
-                <p class="keyword tag_10">인싸재질</p>
-                <p class="keyword tag_11">9월생일</p>
-            </div>
-            <!-- 23.04.08 버튼 없음  - 삭제
-            <button class="plus">+</button>
-            -->
-            <ul class="card_area">
-              <li class="card_type">
-                  <p class="card_type_title">MBTI</p>
-                  <p class="card_type_name">ENTP</p>
-              </li>
-              <li class="card_type">
-                  <p class="card_type_title">애니어그램</p>
-                  <p class="card_type_name_main">전문가</p>
-                  <p class="card_type_name_sub">3 w 4</p>
-              </li>
-              <li class="card_type add">
-                  <p class="card_type_plus">+</p>
-              </li>
-          </ul>
+        <p class="name-title">하나비</p>
+        <div class="tag-area">
+            <div class="main-character ISFP"></div>
+            <p class="tag-name tag-01 yellow">안전운전</p>
+            <p class="tag-name tag-02 pink">걱정쟁이</p>
+            <p class="tag-name tag-03 pink">상상쟁이</p>
+            <p class="tag-name tag-04 yellow">장인정신</p>
+            <p class="tag-name tag-05 yellow">아이디어</p>
+            <p class="tag-name tag-06 pink">개별화짱</p>
+            <p class="tag-name tag-07 pink">성취성취</p>
+            <p class="tag-name tag-08 yellow">전략전략</p>
+            <p class="tag-name tag-09 yellow">최상화짱</p>
+            <p class="tag-name tag-10 pink">인싸재질</p>
+        </div>
+        <ul class="card-area">
+            <li class="card-type">
+                <p class="card-type-title">MBTI</p>
+                <p class="card-type-name">ENTP</p>
+            </li>
+            <li class="card-type">
+                <p class="card-type-title">애니어그램</p>
+                <p class="card-type-name-main">전문가</p>
+                <p class="card-type-name-sub">3 w 4</p>
+            </li>
+            <li class="card-type add">
+                <p class="card-type-plus">+</p>
+            </li>
+        </ul>
 
-          <div class="summary_area">
-            <p class="summary_title">MBTI</p>
-            <p class="summary_type">ENTP</p>
-            <p class="summary_text">뜨거운 논쟁을 즐기는 변론가, 발명가형</p>
-          </div>
+        <div class="summary-area">
+            <p class="summary-title">MBTI</p>
+            <p class="summary-type">ENTP</p>
+            <p class="summary-text">뜨거운 논쟁을 즐기는 변론가, 발명가형</p>
+        </div>
 
-          <div class="graph_area">
-            <p class="graph_title">정신</p>
-            <table class="graph_detail">
-              <tr>
-                <td class="graph_type left">
-                  <p>46%</p>
-                  <p>내향형</p>
-                </td>
-                <td class="graph_bar">
-                  <input class="slider" type="range" min="0" max="100" value="46" disabled>
-                </td>
-                <td class="graph_type right my_type">
-                  <p>54%</p>
-                  <p>외향형</p>
-                </td>
-              </tr>
+        <div class="graph-area">
+            <p class="graph-title">정신</p>
+            <table class="graph-detail">
+                <tr>
+                    <td class="graph-type left">
+                        <p>46%</p>
+                        <p>내향형</p>
+                    </td>
+                    <td class="graph-bar">
+                        <input class="slider" type="range" min="0" max="100" value="46" disabled>
+                    </td>
+                    <td class="graph-type right my-type">
+                        <p>54%</p>
+                        <p>외향형</p>
+                    </td>
+                </tr>
             </table>
-          </div>
+        </div>
 
-          <div class="graph_area">
-            <p class="graph_title">에너지</p>
-            <table class="graph_detail">
-              <tr>
-                <td class="graph_type left my_type">
-                  <p>70%</p>
-                  <p>직관형</p>
-                </td>
-                <td class="graph_bar">
-                  <input class="slider" type="range" min="0" max="100" value="70" disabled>
-                </td>
-                <td class="graph_type right">
-                  <p>30%</p>
-                  <p>현실<br>주의형</p>
-                </td>
-              </tr>
+        <div class="graph-area">
+            <p class="graph-title">에너지</p>
+            <table class="graph-detail">
+                <tr>
+                    <td class="graph-type left my-type">
+                        <p>70%</p>
+                        <p>직관형</p>
+                    </td>
+                    <td class="graph-bar">
+                        <input class="slider" type="range" min="0" max="100" value="70" disabled>
+                    </td>
+                    <td class="graph-type right">
+                        <p>30%</p>
+                        <p>현실<br>주의형</p>
+                    </td>
+                </tr>
             </table>
-          </div>
+        </div>
 
-          <div class="graph_area">
+        <div class="graph-area">
             <p class="graph_title">본성</p>
-            <table class="graph_detail">
-              <tr>
-                <td class="graph_type left">
-                  <p>10%</p>
-                  <p>사고형</p>
-                </td>
-                <td class="graph_bar">
-                  <input class="slider" type="range" min="0" max="100" value="10" disabled>
-                </td>
-                <td class="graph_type right my_type">
-                  <p>90%</p>
-                  <p>감정형</p>
-                </td>
-              </tr>
+            <table class="graph-detail">
+                <tr>
+                    <td class="graph-type left">
+                        <p>10%</p>
+                        <p>사고형</p>
+                    </td>
+                    <td class="graph-bar">
+                        <input class="slider" type="range" min="0" max="100" value="10" disabled>
+                    </td>
+                    <td class="graph-type right my-type">
+                        <p>90%</p>
+                        <p>감정형</p>
+                    </td>
+                </tr>
             </table>
-          </div>
+        </div>
 
-          <div class="graph_area">
-            <p class="graph_title">전술</p>
-            <table class="graph_detail">
-              <tr>
-                <td class="graph_type left my_type">
-                  <p>80%</p>
-                  <p>계획형</p>
-                </td>
-                <td class="graph_bar">
-                  <input class="slider" type="range" min="0" max="100" value="80" disabled>
-                </td>
-                <td class="graph_type right">
-                  <p>20%</p>
-                  <p>탐색형</p>
-                </td>
-              </tr>
+        <div class="graph-area">
+            <p class="graph-title">전술</p>
+            <table class="graph-detail">
+                <tr>
+                    <td class="graph-type left my-type">
+                        <p>80%</p>
+                        <p>계획형</p>
+                    </td>
+                    <td class="graph-bar">
+                        <input class="slider" type="range" min="0" max="100" value="80" disabled>
+                    </td>
+                    <td class="graph-type right">
+                        <p>20%</p>
+                        <p>탐색형</p>
+                    </td>
+                </tr>
             </table>
-          </div>
+        </div>
 
-          <div class="graph_area">
+        <div class="graph-area">
             <p class="graph_title">자아</p>
-            <table class="graph_detail">
-              <tr>
-                <td class="graph_type left my_type">
-                  <p>65%</p>
-                  <p>확신형</p>
-                </td>
-                <td class="graph_bar">
-                  <input class="slider" type="range" min="0" max="100" value="65" disabled>
-                </td>
-                <td class="graph_type right">
-                  <p>35%</p>
-                  <p>민감형</p>
-                </td>
-              </tr>
+            <table class="graph-detail">
+                <tr>
+                    <td class="graph-type left my-type">
+                        <p>65%</p>
+                        <p>확신형</p>
+                    </td>
+                    <td class="graph-bar">
+                        <input class="slider" type="range" min="0" max="100" value="65" disabled>
+                    </td>
+                    <td class="graph-type right">
+                        <p>35%</p>
+                        <p>민감형</p>
+                    </td>
+                </tr>
             </table>
-          </div>
+        </div>
 
-          <div class="keword_area">
-            <div class="keyword_card">
-              <div class="keyword_title">
-                <p>연관단어</p>
-              </div>
-              <ul class="keyword_type">
-                <li class="keyword_name">마이<br>웨이</li>
-                <li class="keyword_name">노빠꾸<br>직진</li>
-                <li class="keyword_name">전통<br>파괴자</li>
-                <li class="keyword_name">플러팅<br>장인</li>
-                <li class="keyword_name">맑눈광<br>+_+</li>
-              </ul>
-            </div>
-            <div class="keyword_card">
-              <div class="keyword_title">
-                <p>유명인 <span>ENTP 3w4</span></p>
-              </div>
-              <ul class="keyword_type">
-                <li class="keyword_name">버락<br>오바마</li>
-                <li class="keyword_name">스티브<br>잡스</li>
-                <li class="keyword_name">칼라거<br>펠드</li>
-                <li class="keyword_name">히치콕<br>*ㅁ*</li>
-                <li class="keyword_name">조커<br>@_@</li>
-              </ul>
-            </div>
-          </div>
+        <div class="keyword-area">
+            <p class="keyword-title celebrity">유명인</p>
+            <table style="width: 100%">
+                <tbody>
+                <tr>
+                    <td class="keyword-name">로버트 다우니 주니어 <span>&nbsp;/&nbsp;</span><span>Actors</span></td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name">로버트 다우니 주니어 <span>&nbsp;/&nbsp;</span><span>Actors</span></td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name">로버트 다우니 주니어 <span>&nbsp;/&nbsp;</span><span>Actors</span></td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name">로버트 다우니 주니어 <span>&nbsp;/&nbsp;</span><span>Actors</span></td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name">로버트 다우니 주니어 <span>&nbsp;/&nbsp;</span><span>Actors</span></td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-          <div class="extra_area">
-            <button class="extra_info">MBTI 각 유형별 의외의 특성</p> 
-          </div>
-        </div>    
+        <div class="keyword-area">
+            <p class="keyword-title character">영화 & 애니메이션 캐릭터</p>
+            <table style="width: 100%">
+                <tbody>
+                <tr>
+                    <td class="keyword-name">Saul Goodman, 브레이킹 배드(2008)</td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name">Saul Goodman, 브레이킹 배드(2008)</td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name">Saul Goodman, 브레이킹 배드(2008)</td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name">Saul Goodman, 브레이킹 배드(2008)</td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name">Saul Goodman, 브레이킹 배드(2008)</td>
+                    <td class="keyword-type">ENTP 7w6</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="keyword-area">
+            <p class="keyword-title movie">이 영화 어떠세요?</p>
+            <table style="width: 100%">
+                <tbody>
+                <tr>
+                    <td class="keyword-name all">캐치 미 이프 유캔 (Catch Me If You Can, 2002)</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name all">캐치 미 이프 유캔 (Catch Me If You Can, 2002)</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name all">캐치 미 이프 유캔 (Catch Me If You Can, 2002)</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name all">캐치 미 이프 유캔 (Catch Me If You Can, 2002)</td>
+                </tr>
+                <tr>
+                    <td class="keyword-name all">캐치 미 이프 유캔 (Catch Me If You Can, 2002)</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="extra-area">
+            <button class="extra-info-link">MBTI 각 유형별 의외의 특성</button>
+        </div>
     </div>
 </div>
+
 <script type="text/javascript">
-  
-  let sliders = $(".slider");
-  for(let i = 0; i < 5; i++) {
-    const slider = sliders[i];
-    const sliderValue = slider.value;
 
-    if (sliderValue >= 50) {
-      slider.style.color = "#f79826";
-      slider.style.background = 
-        'linear-gradient(to right, #f79826 0%, #f79826 '
-        + slider.value
-        + '%, rgb(236, 236, 236) ' 
-        + slider.value
-        + '%, rgb(236, 236, 236) 100%)';
-      
-        
-    } else {
+    let sliders = $(".slider");
+    for (let i = 0; i < 5; i++) {
+        const slider = sliders[i];
+        const sliderValue = slider.value;
 
-    slider.style.background = 
-        'linear-gradient(to left, #f79826 0%, #f79826 '
-        + (100 - slider.value)
-        + '%, rgb(236, 236, 236) ' 
-        + (100 - slider.value)
-        + '%, rgb(236, 236, 236) 100%)';
-      
-        slider.style.color = "#d3d3d3";
+        if (sliderValue >= 50) {
+            slider.style.color = "#f79826";
+            slider.style.background =
+                'linear-gradient(to right, #f79826 0%, #f79826 '
+                + slider.value
+                + '%, rgb(236, 236, 236) '
+                + slider.value
+                + '%, rgb(236, 236, 236) 100%)';
+
+
+        } else {
+
+            slider.style.background =
+                'linear-gradient(to left, #f79826 0%, #f79826 '
+                + (100 - slider.value)
+                + '%, rgb(236, 236, 236) '
+                + (100 - slider.value)
+                + '%, rgb(236, 236, 236) 100%)';
+
+            slider.style.color = "#d3d3d3";
+        }
     }
-  }
-      
-  </script>
+
+</script>
 </body>
 </html>

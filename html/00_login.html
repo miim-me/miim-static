@@ -1,161 +1,83 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="utf-8">
     <title>mi러me</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no ,viewport-fit=cover"/>
     <meta name="format-detection" content="telephone=no">
     <meta property="og:type" content="website">
     <meta property="og:title" content="미러미">
-    <meta property="og:description" content="최대 연 2.0% 월복리통장">
-    <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
-    <meta property="og:image" content="../images/img_share.png">
+    <meta property="og:description" content="나도 몰랐던 나를 모으는 기록장">
+    <meta name="keywords" content="mi러me, 나도 몰랐던 나를 모으는 기록장 by 하영줍서 프로젝트">
+    <meta property="og:image" content="../images/share/thumbnail.png">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+            crossorigin="anonymous"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
-            integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+            integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx"
+            crossorigin="anonymous"></script>
     <script>
-      //Kakao.init('c089c8172def97eb00c07217cae17495'); // 사용하려는 앱의 JavaScript 키 입력
-      Kakao.init('e4ffaacae2d08574c5a55cf850142f43'); // 사용하려는 앱의 JavaScript 키 입력
+        //Kakao.init('c089c8172def97eb00c07217cae17495'); // 사용하려는 앱의 JavaScript 키 입력
+        Kakao.init('e4ffaacae2d08574c5a55cf850142f43'); // 사용하려는 앱의 JavaScript 키 입력
     </script>
-    <style>
-        /*img {
-            padding: auto ;
-            display: block;
-        }*/
-       @import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700,800')
 
-        html,
-		body {
-			height: 100%;
-			width: 100%;
-		}
-
-		body {
-			background: #F5F6F8;
-			font-size: 16px;
-			font-family: 'Open Sans', sans-serif;
-			color: #2C3E51;
-		}
-
-		.wrap {
-			display: flex;
-			align-items: flex-start;
-			justify-content: center;
-			height: 100vh;
-
-			background-color:#fbf3d1;
-		}
-
-		.wrap>div>div,
-		.wrap>div>span {
-			text-align: center;
-		}
-
-		.work_area {
-		    padding-top: 150px;
-		}
-
-        h1, h2, h3, h4, h5, h6, p {
-            font-family: 'Nanum Myeongjo' !important;
-        }
-        .summary {
-            color: #ffd657;
-            font-size: 20px;
-            font-weight: 800;
-        }
-        .summary span{
-            color: #ffb431
-        }
-
-        .login {
-            position: fixed;
-            bottom: 200px;
-        }
-        .footer {
-            position: fixed;
-            bottom: 50px;
-        }
-        .copyright {
-            font-size: 12px;
-            font-weight: 800;
-        }
-    </style>
 </head>
 <body>
 <div class="wrap">
-    <div class="work_area" >
-        <div id="logo" class="logo">
+    <div class="work-area login">
+        <div class="logo">
             <p class="summary">나도 몰랐던</p>
             <p class="summary">나를 모으는 <span>기록장</span></p>
-            <img src="../images/main.png" style="width:250px;height:250px;border-radius:20px;" onerror="this.style.display='none'"/>
+            <img src="../images/main.png" style="width:250px;height:250px;border-radius:20px;"
+                 onerror="this.style.display='none'"/>
+        </div>
+        <div class="kakao-login">
+            <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+                <img src="../images/kakao_login_medium_narrow.png" alt="카카오 로그인 버튼"/>
+            </a>
+            <p id="token-result"></p>
+        </div>
+        <div class="footer">
+            <p class="copyright">©하영줍서 Season1 Project</p>
         </div>
     </div>
-    <div class="login">
-        <a id="kakao-login-btn" href="javascript:loginWithKakao()">
-            <img src="../images/kakao_login_medium_narrow.png" alt="카카오 로그인 버튼" />
-        </a>
-        <p id="token-result"></p>
-    </div>
-    <div class="footer">
-        <p class="copyright">©하영줍서 Season1 Project</p>
-    </div>
+
 </div>
-<!--
-<div class="wrap">
-    <section>
-        <article>
-            <img src="../images/main.png" alt="" width="200em">
-        </article>
-    </section>
-</div>
--->
 <script type="text/javascript">
-$(function(){
-
-	// 공유하기
-	if (window.navigator.share === undefined) {
-		$('.btn--share').hide();
-	}
-
-});
-
-
-function loginWithKakao() {
-    Kakao.Auth.authorize({
-        redirectUri: 'https://developers.kakao.com/tool/demo/oauth',
-    });
-}
-
-// 아래는 데모를 위한 UI 코드입니다.
-displayToken()
-
-function displayToken() {
-    var token = getCookie('authorize-access-token');
-
-    if (token) {
-        Kakao.Auth.setAccessToken(token);
-        Kakao.Auth.getStatusInfo()
-            .then(function(res) {
-                if (res.status === 'connected') {
-                    document.getElementById('token-result').innerText = 'login success, token: ' + Kakao.Auth.getAccessToken();
-                }
-            })
-            .catch(function(err) {
-                Kakao.Auth.setAccessToken(null);
-            });
+    function loginWithKakao() {
+        Kakao.Auth.authorize({redirectUri: 'https://developers.kakao.com/tool/demo/oauth',});
     }
-}
 
-function getCookie(name) {
-    var parts = document.cookie.split(name + '=');
-    if (parts.length === 2) {
-        return parts[1].split(';')[0];
+    // 아래는 데모를 위한 UI 코드입니다.
+    displayToken()
+
+    function displayToken() {
+        var token = getCookie('authorize-access-token');
+
+        if (token) {
+            Kakao.Auth.setAccessToken(token);
+            Kakao.Auth.getStatusInfo()
+                .then(function (res) {
+                    if (res.status === 'connected') {
+                        document.getElementById('token-result').innerText = 'login success, token: ' + Kakao.Auth.getAccessToken();
+                    }
+                })
+                .catch(function (err) {
+                    Kakao.Auth.setAccessToken(null);
+                });
+        }
     }
-}
 
+    function getCookie(name) {
+        var parts = document.cookie.split(name + '=');
+        if (parts.length === 2) {
+            return parts[1].split(';')[0];
+        }
+    }
 </script>
 </body>
 </html>

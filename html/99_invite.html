@@ -8,130 +8,23 @@
     <meta name="format-detection" content="telephone=no">
     <meta property="og:type" content="website">
     <meta property="og:title" content="미러미">
-    <meta property="og:description" content="최대 연 2.0% 월복리통장">
-    <meta name="keywords" content="핀크, Finnq, 뱅크말고핀크, 핀테크, 핀테크앱, 앱테크, 혁신금융, 오픈뱅킹, 무료송금, 자산관리, 가계부">
-    <meta property="og:image" content="../images/img_share.png">
+    <meta property="og:description" content="나도 몰랐던 나를 모으는 기록장">
+    <meta name="keywords" content="mi러me, 나도 몰랐던 나를 모으는 기록장 by 하영줍서 프로젝트">
+    <meta property="og:image" content="../images/share/thumbnail.png">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <script type="text/javascript" src="https://www.finnq.com/resources/js/jquery-2.2.4.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-
-        html,
-		body {
-			height: 100%;
-			width: 100%;
-		}
-
-		body {
-			background: #F5F6F8;
-			font-size: 16px;
-			font-family: 'Open Sans', sans-serif;
-			color: #2C3E51;
-            
-		}
-
-		.wrap {
-			display: flex;
-			align-items: flex-start;
-			justify-content: center;
-			min-height: 880px;
-			background-color: #fcf3d2;
-		}
-
-		.wrap>div>div,
-		.wrap>div>span {
-			text-align: center;
-		}
-
-		.work_area {
-		    padding-top: 50px;
-		}
-        .invite_profile {
-            width: 320px;
-            margin: 0 auto;
-            margin-bottom: 40px;
-        }
-        h1, h2, h3, h4, h5, h6, p, li {
-            
-            font-family: 'Noto Sans KR' !important;
-        }
-        .invite_profile .title {
-            text-align: left;
-            font-size: 15px;
-            font-weight: 500;
-        }
-        .invite_profile .sub_title {
-            text-align: left;
-            font-size: 26.5px;
-            font-weight: 700;
-            letter-spacing : -2.65px;
-        }
-        .invite_profile .sub_title:nth-last-child(2) {
-            margin-bottom: 30px;
-        }
-        .invite_profile ul {
-            margin: 0;
-            padding: 0;
-            columns: 3;
-            -webkit-columns: 3;
-            -moz-columns: 3;
-        }
-        .invite_profile .keyword {
-            border: 1px;
-            border-style: solid;
-            border-color: #000;
-            border-radius: 10px;
-            float: left;
-            font-size: 15px;
-            font-weight: 700;
-            padding:10px 10px;
-            margin: 2px 0px;
-            width: 85px;
-            height: 20px;
-        }
-        .invite_profile .selected {
-            border: 1px;
-            border-style: solid;
-            border-color: #f8931f;
-            border-radius: 10px;
-            float: left;
-            font-size: 15px;
-            font-weight: 700;
-            padding:10px 10px;
-            margin: 2px 0px;
-            width: 85px;
-            height: 20px;
-            background-color: #f8931f;
-        }
-        .invite_profile_submit {
-            
-            border: 1px;
-            border-style: solid;
-            border-color: #000;
-            border-radius: 10px;
-            float: left;
-            color: #fcf3d2;
-            font-size: 18px;
-            font-weight: 700;
-            padding:10px 10px;
-            margin: 2px 0px;
-            width: 330px;
-            height: 50px;
-            background-color: #2b3848;
-        }
-
-
-    </style>
 </head>
 <body>
 <div class="wrap">
-    <div class="work_area" >
-        <div class="invite_profile">
+    <div class="work-area invite">
+        <div class="invite-profile">
             <p class="title"><span>가영킴</span>님 반가워요!</p>
-            <p class="sub_title"><span>하나비</span>님과 가장 가까운</p>
-            <p class="sub_title">단어 5가지를 골라주세요.</p>
-            <ul>            
+            <p class="sub-title"><span>하나비</span>님과 가장 가까운</p>
+            <p class="sub-title">단어 5가지를 골라주세요.</p>
+
+            <ul class="keyword-selection">
                 <li class="keyword selected">인간리트리버</li>
                 <li class="keyword">돌직구왕</li>
                 <li class="keyword">열정그잡채</li>
@@ -179,9 +72,10 @@
                 <li class="keyword">카멜레온</li>
                 <li class="keyword">뒤끝없음</li>
                 <li class="keyword">따숩말랑</li>
-            </ul>  
+            </ul>
+
         </div>
-        <button class="invite_profile_submit">제출하기</p> 
+        <button class="invite-profile-submit">제출하기</button>
     </div>
 </div>
 <script type="text/javascript">

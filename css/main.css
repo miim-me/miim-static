@@ -1,0 +1,918 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+/*********************************
+    공통
+ *********************************/
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: #F5F6F8;
+    color: #2C3E51;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.wrap {
+    align-items: flex-start;
+    background-color: #fbf3d1;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    text-align: center;
+}
+
+.work-area {
+    padding-top: 150px;
+}
+
+/* Change the color to your own background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: #fff !important;
+}
+
+/*********************************
+    로그인
+ *********************************/
+.login  p {
+    font-family: 'Nanum Myeongjo' !important;
+}
+
+.login .summary {
+    text-align: center;
+    color: #ffd657;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.login .summary span {
+    color: #ffb431
+}
+
+.login .kakao-login {
+    margin-top: 50px;
+}
+
+.login .footer {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.login .copyright {
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/*********************************
+    튜토리얼
+ *********************************/
+.tutorial {
+    width: 100%;
+    height: 100%;
+}
+
+.tutorial .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;"
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+.tutorial .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ */
+
+/*********************************
+    가입
+ *********************************/
+.join .profile {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.join p, join li {
+    font-family: 'Noto Sans KR' !important;
+}
+
+.join .title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -2.65px;
+}
+
+.join .sub-title {
+    text-align: left;
+    font-size: 26.5px;
+    font-weight: 700;
+    letter-spacing: -2.65px;
+}
+
+.join .sub-title:nth-last-child(2) {
+    margin-bottom: 60px;
+}
+
+.join .summary {
+    width: 300px;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid #000000;
+}
+
+.join .warn {
+    margin-bottom: 0px;
+}
+
+.join .validation-message {
+    text-align: right;
+    color: red;
+}
+
+.join input::placeholder, select{
+    color: #6a6666;
+}
+.join .summary input[type=text] {
+    margin-left: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+}
+
+.join .summary label {
+    position: absolute;
+    visibility: hidden;
+}
+
+.join .summary label:after {
+    content: '▼';
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    text-align: center;
+    background: #606976;
+}
+
+.join .summary select,
+.join .summary input[type=date] {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/*********************************
+    나 셀프 (지킬) + 나 위드 (하이드) 공통
+ *********************************/
+
+/** 태그 영역 **/
+.self, .with {
+    width: 330px;
+    padding-top: 80px;
+}
+
+.self p, .self li, .self button,
+.with p, .with li, .with button {
+    font-family: 'Jua', sans-serif;
+}
+
+.self .name-title,
+.with .name-title {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.self .main-character,
+.with .main-character {
+    content: "";
+    background-image: url("../images/character/ME.png");
+    background-size: 160px 162px;
+    width: 160px;
+    height: 162px;
+    display: inline-block;
+}
+
+.self .tag-name,
+.with .tag-name {
+    position: relative;
+    font-size: 20px;
+    padding: 3px 10px;
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.self .tag-area,
+.with .tag-area {
+    height: 220px;
+}
+
+.self .tag-01,
+.with .tag-01 {
+    top: -160px;
+    left: 30px;
+}
+.self .tag-02,
+.with .tag-02 {
+    top: -192px;
+    left: 225px;
+}
+.self .tag-03,
+.with .tag-03 {
+    top: -182px;
+    left: 10px;
+}
+.with .tag-04,
+.self .tag-04 {
+    top: -214px;
+    left: 245px;
+}
+.self .tag-05,
+.with .tag-05 {
+    top: -200px;
+    left: 0px;
+}
+.self .tag-06,
+.with .tag-06 {
+    top: -232px;
+    left: 250px;
+}
+.self .tag-07,
+.with .tag-07 {
+    top: -220px;
+    left: 20px;
+}
+.self .tag-08,
+.with .tag-08 {
+    top: -252px;
+    left: 230px;
+}
+.self .tag-09,
+.with .tag-09 {
+    top: -242px;
+    left: 60px;
+}
+.self .tag-10,
+.with .tag-10 {
+    top: -274px;
+    left: 190px;
+}
+
+/*********************************
+    나 셀프 (지킬)
+ *********************************/
+
+/** 태그 영역 **/
+.self .name-title {
+    color: #f7941f
+}
+
+.self .yellow {
+    color: #fdc45b;
+    background-color: #fbf4d1;
+}
+.self .pink {
+    color: #fd9ca6;
+    background-color: #f7dade;
+}
+
+.self .ENFJ {
+    background-image: url("../images/character/ENFJ.png");
+}
+
+.self .ENFP {
+    background-image: url("../images/character/ENFP.png");
+}
+
+.self .ENTJ {
+    background-image: url("../images/character/ENTJ.png");
+}
+
+.self .ENTP {
+    background-image: url("../images/character/ENTP.png");
+}
+
+.self .ESFJ {
+    background-image: url("../images/character/ESFJ.png");
+}
+
+.self .ESFP {
+    background-image: url("../images/character/ESFP.png");
+}
+
+.self .ESTJ {
+    background-image: url("../images/character/ESTJ.png");
+}
+
+.self .ESTP {
+    background-image: url("../images/character/ESTP.png");
+}
+
+.self .INFJ {
+    background-image: url("../images/character/INFJ.png");
+}
+
+.self .INFP {
+    background-image: url("../images/character/INFP.png");
+}
+
+.self .INTJ {
+    background-image: url("../images/character/INTJ.png");
+}
+
+.self .INTP {
+    background-image: url("../images/character/INTP.png");
+}
+
+.self .ISFJ {
+    background-image: url("../images/character/ISFJ.png");
+}
+
+.self .ISFP {
+    background-image: url("../images/character/ISFP.png");
+}
+
+.self .ISTJ {
+    background-image: url("../images/character/ISTJ.png");
+}
+
+.self .ISTP {
+    background-image: url("../images/character/ISTP.png");
+}
+
+/** 카드 영역 **/
+.self .card-area {
+    text-align: center;
+    display: inline-block;
+}
+
+.self .card-type {
+    list-style-type: none;
+    float: left;
+    color: #f79826;
+    width: 96px;
+    height: 85px;
+    background-color: #fbf4d1;
+    border-radius: 10px;
+}
+
+.self .card-type.add {
+    color: #ffffff;
+    background-color: #afaeaa;
+}
+
+.self ul li:not(:last-of-type) {
+    margin-right: 5px;
+}
+
+.self .card-type-title {
+    padding-top: 15px;
+    font-size: 15px;
+}
+
+.self .card-type-name {
+    font-size: 25px;
+}
+
+.self .card-type-name-main {
+    font-size: 20px;
+
+}
+
+.self .card-type-name-sub {
+    font-size: 12px;
+}
+
+.self .card-type-plus {
+    font-size: 30px;
+    padding: 22px 0px;
+}
+
+.self .card-area::before, .card-area::after {
+    content: '';
+    border-bottom: 5px solid #fbf4d1;
+    display: block;
+    height: 5px;
+}
+
+.self .card-area::before {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.self .card-area::after {
+    margin-top: 120px;
+}
+
+/** 요약 영역 **/
+.self .summary-area {
+    width: 100%;
+    height: 85px;
+    margin-top: 30px;
+    text-align: left;
+    color: #f79826;
+}
+
+.self .summary-type {
+    font-size: 25px;
+}
+
+.self .summary-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: black;
+    font-size: 15px;
+}
+
+/** 그래프 영역 **/
+.self .graph-area {
+    margin-top: 30px;
+}
+
+.self .graph-area::after {
+    content: '';
+    border-bottom: 1px solid #d3d3d3;
+    display: block;
+    margin-top: 20px;
+}
+
+.self .graph-area p {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 auto;
+}
+
+.self .graph-detail {
+    margin-top: 10px;
+}
+
+.self .graph-bar {
+    width: 200px;
+}
+
+.self .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.self .graph-bar .slider {
+    -webkit-appearance: none;
+    height: 15px;
+    color: #d3d3d3;
+    outline: none;
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+.self .my-type {
+    color: #f7941f;
+}
+
+/** 키워드 영역 **/
+.self .keyword-area {
+    margin-top: 30px;
+}
+
+.self .keyword-area::after {
+    content: '';
+    border-bottom: 5px solid #d3d3d3;
+    display: block;
+    margin-top: 20px;
+}
+
+.self .keyword-title {
+    height: 30px;
+    text-align: left;
+    font-size: 20px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.self .celebrity::before {
+    content:"";
+    background-image: url("../images/keyword/character.png");
+    background-size:30px 20px;
+    width:30px;
+    height:20px;
+    margin-right: 3px;
+    display:inline-block;
+}
+
+.self .character::before {
+    content:"";
+    background-image: url("../images/keyword/character.png");
+    background-size:30px 20px;
+    width:30px;
+    height:20px;
+    margin-right: 3px;
+    display:inline-block;
+}
+
+.self .movie::before {
+    content:"";
+    background-image: url("../images/keyword/character.png");
+    background-size:30px 20px;
+    width:30px;
+    height:20px;
+    margin-right: 3px;
+    display:inline-block;
+}
+
+.self .keyword-area tr {
+    width: 260px;
+    height: 30px;
+
+    text-align: left;
+}
+.self .keyword-name,
+.self .keyword-type {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.self .keyword-name {
+    width: 250px;
+}
+
+.self .keyword-name>span{
+    color: #989898;
+}
+.self .keyword-type {
+    font-size: 15px;
+    color: #f7941f;
+}
+
+/** 기타 영역 **/
+.self .extra-info-link {
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 10px;
+    margin: 30px 0px;
+    width: 100%;
+    height: 50px;
+    background-color: #d3d3d3;
+}
+
+/*********************************
+    나 타인 (하이드)
+ *********************************/
+
+/** 태그 영역 **/
+
+.with .description {
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+.with .name-title {
+    color: #38455b;
+}
+
+.with .navy {
+    color: #f9f8f4;
+    background-color: #546993;
+}
+
+.with .beige {
+    color: #f9f8f4;
+    background-color: #e0b88c;
+}
+
+.with .apricot {
+    color: #f9f8f4;
+    background-color: #da99a0;
+}
+
+/** 차트 영역 **/
+.with .friend-info::before {
+    content: '';
+    border-bottom: 5px solid #f7e6cb;
+    display: block;
+    margin-top: 30px;
+}
+
+.with .friend-info-detail-graph {
+ margin: 20px 0;
+}
+
+.with .friend-stat:not(:last-of-type) {
+    list-style-type: none;
+    float: left;
+}
+
+.with .stat-graph {
+    width: 130px;
+}
+
+.with .friend-chart {
+    margin-left:30px;
+    width: 70%;
+    background-image: url('../images/small_character.png');
+    background-repeat : no-repeat;
+    background-position : center center;
+    background-size : 25%;
+}
+
+.with .stat-text {
+    text-align: left;
+}
+
+.with .stat-text-title {
+    font-size: 14px;
+    color: #e0b88c;
+    margin-bottom: 5px;
+}
+
+.with .stat-text-detail {
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.with .stat-text-detail em {
+    color: #546993;
+    font-family: 'Jua', sans-serif;
+}
+
+/** 친구 정보 상세 **/
+.with .friend-info-detail {
+    margin-top: 30px;
+}
+
+.with .stat-circle-graph {
+    width: 50%;
+    background-repeat : no-repeat;
+    background-position : center center;
+    background-size : 100%;
+
+}
+.with .stat-circle-01 {
+    background-image: url("../images/graph/circle_01.png");
+}
+.with .stat-circle-02 {
+    background-image: url("../images/graph/circle_02.png");
+}
+.with .stat-circle-03 {
+    background-image: url("../images/graph/circle_03.png");
+}
+.with .stat-circle-04 {
+    background-image: url("../images/graph/circle_04.png");
+}
+.with .stat-circle-05 {
+    background-image: url("../images/graph/circle_05.png");
+}
+.with .stat-circle-06 {
+    background-image: url("../images/graph/circle_06.png");
+}
+.with .stat-circle-07 {
+    background-image: url("../images/graph/circle_07.png");
+}
+.with .stat-circle-08 {
+    background-image: url("../images/graph/circle_08.png");
+}
+.with .stat-circle-09 {
+    background-image: url("../images/graph/circle_09.png");
+}
+.with .stat-circle-10 {
+    background-image: url("../images/graph/circle_10.png");
+}
+.with .stat-circle-text {
+    font-family: 'Jua', sans-serif;
+}
+.with .stat-circle-text.mbti{
+    width: 60px;
+    color: #79bc99;
+}
+
+.with .stat-circle-text.count{
+    width: 30px;
+}
+
+.with .stat-circle-text.info{
+    padding-top:3px;
+    padding-left: 10px;
+    text-align: left;
+    color: #A4A4A4;
+    font-size: 8px;
+}
+
+.with .info-box::after {
+    content: '';
+    border-bottom: 3px solid #f7e6cb;
+    display: block;
+    height: 3px;
+    margin-top: 30px;
+}
+
+/** 친구 정보 요약 **/
+.with .friend-info-more {
+    margin-top: 30px;
+}
+
+.with .friend-info-more-thumbnail img {
+    width: 120px;
+}
+
+.with .friend-info-more-title {
+    color: #f0ca8d;
+    margin-bottom: 5px;;
+    text-align: left;
+}
+
+.with .friend-info-more-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: left;
+}
+
+.with .friend-info-more-text span {
+    font-family: 'Jua', sans-serif;
+    color: #fd9ca6;
+}
+
+.with .friend-info-more-summary {
+    font-size: 12px;
+    margin-top:5px;
+    text-align: left;
+    color:#a9a6a6;
+}
+
+.with .friend-info-4 p {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-top:20px;
+    margin-bottom:40px;
+}
+
+/*********************************
+    관계도 (없음)
+ *********************************/
+.no-relation {
+    width: 330px;
+    padding-top: 80px;
+}
+
+.no-relation p {
+    font-size: 20px;
+}
+
+.no-relation .add-relation-title {
+    font-family: 'Jua', sans-serif;
+    font-size: 28px;
+    color: #ff929d;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.no-relation .add-relation-link {
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 30px 0px;
+    width: 100%;
+    height: 100px;
+    background-color: #d3d3d3;
+}
+
+.no-relation .link-type-plus {
+    font-size: 70px;
+    color: #f9f8f4;
+    padding: 10px 0px;
+}
+
+/*********************************
+    관계도 (있음)
+ *********************************/
+.relation-with {
+    padding-top: 80px;
+    width: 330px;
+    color: #2C3E51;
+    font-size: 15px;
+}
+
+.relation-with .title {
+    font-family : KoPubWorld돋움체;
+    font-size : 20px;
+    color : #000000;
+    margin-bottom: 20px;
+}
+
+.relation-with .relation {
+    min-height: 100px;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.relation-with .relation-title {
+    font-family: 'Jua', sans-serif;
+    font-size : 20px;
+    color : #cdccc9;
+    text-align: left;;
+    padding-top: 16px;
+    padding-left: 16px;
+}
+
+.relation-with .relation.add {
+    margin-top: 22px;
+    list-style-type: none; float: left;
+    width: 100%;
+    height: 60px;
+    background-color : #afaeaa;
+    border-radius: 30px;
+}
+
+.relation-with .relation-type-plus {
+    font-family: 'Jua', sans-serif;
+    font-size: 60px;
+    color: #ffffff;
+    padding: 11px;
+}
+
+/*********************************
+    초대
+ *********************************/
+.invite {
+    font-family: 'Noto Sans KR' !important;
+    padding-top: 80px;
+    width: 330px;
+}
+
+.invite .invite-profile {
+    text-align: left;
+}
+
+.invite .invite-profile .title {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.invite .invite-profile .sub-title {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing : -2.65px;
+}
+
+.invite .invite-profile .sub-title:nth-last-child(2) {
+    margin-bottom: 30px;
+}
+
+.invite .keyword-selection {
+    text-align: center;
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+}
+
+.invite .keyword {
+    border: 1px solid #000;
+    border-radius: 10px;
+    float: left;
+    font-size: 15px;
+    font-weight: 700;
+    padding:10px 10px;
+    margin: 2px 0px;
+    width: 85px;
+    height: 20px;
+}
+
+.invite .selected {
+    background-color: #f8931f;
+}
+
+.invite .invite-profile-submit {
+    border-radius: 10px;
+    float: left;
+    color: #fcf3d2;
+    font-size: 18px;
+    font-weight: 700;
+    padding:10px 10px;
+    margin: 30px 0px;
+    width: 100%;
+    height: 50px;
+    background-color: #2b3848;
+}
