@@ -34,14 +34,14 @@ input[type=range]:focus::-ms-fill-upper {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 125px;
+  width: 55px;
   height: 25px;
   background: #04AA6D;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 125px;
+  width: 50px;
   height: 25px;
   background: #04AA6D;
   cursor: pointer;
@@ -64,8 +64,15 @@ input[type=range]:focus::-ms-fill-upper {
 <script>
 document.querySelector('.slider').addEventListener('input',function(event){
   	var gradient_value = 100 / event.target.attributes.max.value;
-    event.target.style.background = 'linear-gradient(to right, #FFE283 0%, #FFE283 '+gradient_value * event.target.value +'%, rgb(236, 236, 236) ' +gradient_value *  event.target.value + '%, rgb(236, 236, 236) 100%)';
-    console.log('linear-gradient(to right, #FFE283 0%, #FFE283 '+gradient_value * event.target.value +'%, rgb(236, 236, 236) ' +gradient_value *  event.target.value + '%, rgb(236, 236, 236) 100%)');
+
+    if( event.target.value > 50) {
+      event.target.style.background = 'linear-gradient(to right, #FFE283 0%, #FFE283 '+gradient_value * event.target.value +'%, #e0deda ' +gradient_value *  event.target.value + '%, #e0deda 100%)';
+    } else {
+      event.target.style.background = 'linear-gradient(to right, #e0deda 0%, #e0deda '+gradient_value * event.target.value +'%, #FFE283 ' +gradient_value *  event.target.value + '%, #FFE283 100%)';
+    }
+
+    console.log(event.target.value);
+    //console.log('linear-gradient(to right, #FFE283 0%, #FFE283 '+gradient_value * event.target.value +'%, rgb(236, 236, 236) ' +gradient_value *  event.target.value + '%, rgb(236, 236, 236) 100%)');
   });
 </script>
 </body>
